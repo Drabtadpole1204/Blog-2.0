@@ -1,0 +1,88 @@
+/* glass_styles.css
+   Background decoration and frosted card styling for Glass wiki page.
+   - Uses optional PNG background images if present in ../PNG/
+   - Provides a frosted glass effect for the wiki card
+*/
+
+:root{
+    --bg-color: #0b1020;
+    --card-bg: rgba(255,255,255,0.06);
+    --card-border: rgba(255,255,255,0.08);
+    --accent: rgba(173, 216, 230, 0.12);
+}
+
+html,body{
+    height:100%;
+    margin:0;
+    padding:0;
+    background-color:var(--bg-color);
+    font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+}
+
+/* layered glass-y background: optional pattern image + radial gradients */
+body::before{
+    content: "";
+    position:fixed;
+    inset:0;
+    z-index:-2;
+    background-image: 
+        radial-gradient(ellipse at 20% 20%, rgba(180,220,255,0.06) 0%, transparent 25%),
+        radial-gradient(ellipse at 80% 80%, rgba(200,180,255,0.05) 0%, transparent 30%),
+        linear-gradient(135deg, rgba(255,255,255,0.012), rgba(0,0,0,0.06));
+    background-blend-mode: screen, screen, normal;
+}
+
+/* optional decorative image layer if you add a PNG named "glass-pattern.png" to the PNG folder */
+body::after{
+    content: "";
+    position:fixed;
+    inset:0;
+    z-index:-1;
+    background-image: url('../PNG/glass-pattern.png');
+    background-repeat: repeat;
+    background-size: 240px 240px;
+    opacity: 0.18;
+    mix-blend-mode: overlay;
+}
+
+.page-content{ padding: 3rem 1rem; max-width: 1100px; margin: 0 auto; }
+.wiki-card{
+    display: flex; flex-wrap: wrap; gap: 1rem; align-items: flex-start;
+    background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
+    border: 1px solid var(--card-border);
+    border-radius: 12px;
+    padding: 1.25rem;
+    box-shadow: 0 6px 20px rgba(2,6,23,0.6);
+    backdrop-filter: blur(6px) saturate(120%);
+}
+
+.wiki-side{ flex: 0 0 320px; }
+.wiki-main{ flex: 1 1 360px; }
+.image-wrap{ max-width: 320px; margin: 0 auto 1rem auto; text-align:center; }
+#glass-portrait{ width:100%; height:auto; border-radius:8px; display:block; transition: opacity 0.6s ease; opacity: 1; }
+
+#glass-portrait.fade-out { opacity: 0; }
+
+/* Sheen overlay on the portrait to simulate light moving over glass */
+.image-wrap{ position: relative; overflow: visible; }
+.image-wrap .sheen{ position: absolute; left: -60%; top: -20%; width: 60%; height: 140%; transform: rotate(-20deg); pointer-events: none; opacity: 0; background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.6) 50%, rgba(255,255,255,0) 100%); filter: blur(10px); }
+.image-wrap.show-sheen .sheen{ animation: sheenMove 900ms ease-in-out forwards; opacity: 1; }
+
+@keyframes sheenMove {
+    0% { left: -60%; opacity: 0; }
+    10% { opacity: 0.9; }
+    100% { left: 140%; opacity: 0; }
+}
+
+.wiki-tabs{ display:flex; gap:0.5rem; margin-bottom:0.75rem; }
+.wiki-tabs button{ background: transparent; border: 1px solid rgba(255,255,255,0.04); padding:0.45rem 0.7rem; border-radius:6px; color:#e8f0ff; }
+.wiki-tabs button.active{ background: rgba(255,255,255,0.04); }
+
+.wiki-content{ color: #e6eef8; }
+.wiki-text{ color: #dbe8ff; line-height:1.5; }
+.ability-list{ color:#dbe8ff; }
+
+@media (max-width: 720px){
+    .wiki-card{ flex-direction: column; }
+    .wiki-side{ flex-basis: auto; }
+}

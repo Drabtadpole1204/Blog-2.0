@@ -1,0 +1,101 @@
+/* Simple wiki card styles for Sansolotl
+   File: CSS/wiki.css
+*/
+:root{
+    --bg: #0f1720;
+    --card: #0b1220;
+    --muted: #9aa4b2;
+    --accent: #7dd3fc;
+    --accent-2: #60a5fa;
+    --text: #e6eef6;
+}
+
+body{
+    background: linear-gradient(180deg,#071021 0%, #0b1220 100%);
+    color:var(--text);
+    font-family: 'Segoe UI', Roboto, Arial, sans-serif;
+    margin:1.25rem;
+}
+
+.page-content{
+    max-width:980px;
+    margin:0 auto;
+}
+
+h1{font-size:1.5rem;margin-bottom:1rem}
+
+.wiki-card{
+    display:flex;
+    gap:1rem;
+    background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+    border:1px solid rgba(255,255,255,0.04);
+    padding:1rem;
+    border-radius:12px;
+    align-items:flex-start;
+}
+
+.wiki-side{
+    width:260px;
+    min-width:200px;
+    text-align:center;
+}
+
+.image-wrap{
+    background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+    border-radius:10px;
+    padding:0.75rem;
+    border:1px solid rgba(255,255,255,0.03);
+}
+
+.wiki-image img{
+    width:100%;
+    height:auto;
+    display:block;
+    border-radius:8px;
+    object-fit:cover;
+}
+
+.wiki-role{color:var(--muted);font-size:0.9rem;margin-top:0.4rem}
+
+.wiki-main{
+    flex:1 1 auto;
+}
+
+.wiki-tabs{
+    display:flex;
+    gap:0.5rem;
+    margin-bottom:0.75rem;
+}
+
+.wiki-tabs button{
+    background:transparent;
+    border:1px solid rgba(255,255,255,0.04);
+    color:var(--muted);
+    padding:0.45rem 0.75rem;
+    border-radius:8px;
+    cursor:pointer;
+    transition:all 160ms ease;
+}
+
+.wiki-tabs button.active{
+    background:linear-gradient(90deg,var(--accent),var(--accent-2));
+    color:#022;
+    border:1px solid rgba(0,0,0,0.15);
+    box-shadow:0 6px 18px rgba(96,165,250,0.12);
+}
+
+.wiki-content{
+    background:transparent;
+}
+
+.wiki-content h3{margin-top:0}
+
+.wiki-text{line-height:1.5;color:#dbe9f8}
+
+.ability-list{margin:0;padding-left:1.15rem}
+
+/* Responsive */
+@media (max-width:760px){
+    .wiki-card{flex-direction:column}
+    .wiki-side{width:100%}
+}

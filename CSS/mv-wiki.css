@@ -1,0 +1,101 @@
+/* Murderverse wiki styles (different name from wiki.css)
+   File: CSS/mv-wiki.css
+*/
+:root{
+    --mv-bg: #1b0f12;
+    --mv-card: #221018;
+    --mv-muted: #c9a8ac;
+    --mv-accent: #f0937a;
+    --mv-accent-2: #d97706;
+    --mv-text: #ffecec;
+}
+
+body{
+    background: linear-gradient(180deg,#0b0810 0%, #1b0f12 100%);
+    color:var(--mv-text);
+    font-family: 'Segoe UI', Roboto, Arial, sans-serif;
+    margin:1.25rem;
+}
+
+.page-content{
+    max-width:980px;
+    margin:0 auto;
+}
+
+h1{font-size:1.5rem;margin-bottom:1rem}
+
+.wiki-card{
+    display:flex;
+    gap:1rem;
+    background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.03));
+    border:1px solid rgba(255,255,255,0.03);
+    padding:1rem;
+    border-radius:12px;
+    align-items:flex-start;
+}
+
+.wiki-side{
+    width:260px;
+    min-width:200px;
+    text-align:center;
+}
+
+.image-wrap{
+    background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.02));
+    border-radius:10px;
+    padding:0.75rem;
+    border:1px solid rgba(255,255,255,0.02);
+}
+
+.wiki-image img{
+    width:100%;
+    height:auto;
+    display:block;
+    border-radius:8px;
+    object-fit:cover;
+}
+
+.wiki-role{color:var(--mv-muted);font-size:0.9rem;margin-top:0.4rem}
+
+.wiki-main{
+    flex:1 1 auto;
+}
+
+.wiki-tabs{
+    display:flex;
+    gap:0.5rem;
+    margin-bottom:0.75rem;
+}
+
+.wiki-tabs button{
+    background:transparent;
+    border:1px solid rgba(255,255,255,0.04);
+    color:var(--mv-muted);
+    padding:0.45rem 0.75rem;
+    border-radius:8px;
+    cursor:pointer;
+    transition:all 160ms ease;
+}
+
+.wiki-tabs button.active{
+    background:linear-gradient(90deg,var(--mv-accent),var(--mv-accent-2));
+    color:#2b0700;
+    border:1px solid rgba(0,0,0,0.15);
+    box-shadow:0 6px 18px rgba(217,119,6,0.12);
+}
+
+.wiki-content{
+    background:transparent;
+}
+
+.wiki-content h3{margin-top:0}
+
+.wiki-text{line-height:1.5;color:#ffe6e0}
+
+.ability-list{margin:0;padding-left:1.15rem}
+
+/* Responsive */
+@media (max-width:760px){
+    .wiki-card{flex-direction:column}
+    .wiki-side{width:100%}
+}

@@ -1,0 +1,10 @@
+/* sansbattle_styles.css
+   Styles for Sans Battles! portrait switching (fade transition)
+*/
+
+.image-wrap { max-width: 360px; margin: 0 auto 1rem auto; text-align: center; }
+
+#glitch-portrait { width: 100%; height: auto; display: block; border-radius: 6px; transition: opacity 0.45s ease; opacity: 1; }
+#glitch-portrait.fade-out { opacity: 0; }
+
+@media (min-width: 800px) { .image-wrap { max-width: 420px; } }

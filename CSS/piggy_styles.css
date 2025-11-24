@@ -1,0 +1,57 @@
+/* Piggy Distortion wiki styles */
+.piggy-card { display: flex; gap: 1rem; align-items: flex-start; position: relative; }
+.wiki-side { width: 260px; }
+.image-wrap { background: linear-gradient(180deg,#0b0b0b, #171717); padding: 12px; border-radius: 8px; box-shadow: 0 6px 18px rgba(0,0,0,0.6); position: relative; overflow: visible; }
+.image-wrap img { display: block; width: 100%; height: auto; border-radius: 4px; transition: opacity 600ms ease, transform 420ms ease; opacity: 1; }
+.image-wrap img.faded { opacity: 0; }
+
+/* badges next to portrait */
+.piggy-badges { display:flex; gap:6px; margin-top:8px; }
+.badge { font-weight:700; padding:4px 8px; border-radius:4px; font-size:12px; letter-spacing:0.6px; display:inline-block; }
+.badge.survivor { background: linear-gradient(90deg,#2b8f4a,#3ec76a); color: #07210a; box-shadow: 0 4px 10px rgba(46,125,50,0.12); border: 1px solid rgba(60,200,120,0.12); }
+.badge.name { background: linear-gradient(90deg,#2b2b2b,#474747); color:#ffd; border:1px solid rgba(255,255,150,0.04); }
+
+/* subtle vignette around the portrait */
+.image-wrap::after { content: ""; position:absolute; inset:0; border-radius:6px; pointer-events:none; box-shadow: 0 0 18px rgba(0,0,0,0.25) inset; }
+
+/* hazard stripe accent on the card (decorative) */
+.piggy-card::before { content: ""; position:absolute; left: -6px; top: -6px; width: 12px; height: calc(100% + 12px); background-image: repeating-linear-gradient(135deg, #2b2b2b 0 8px, #ffecb5 8px 16px); opacity:0.06; transform: skewX(-6deg); border-radius:2px; }
+
+/* Infection / Piggy traces (decorative, non-animated) */
+.infection-overlay { position: absolute; inset: 0; pointer-events: none; }
+.infection-overlay::before {
+    /* subtle blood smear */
+    content: ""; position: absolute; left: 8%; top: 60%; width: 46%; height: 18%; background: radial-gradient(ellipse at 20% 40%, rgba(150,16,16,0.28) 0 8%, transparent 18%), radial-gradient(ellipse at 70% 60%, rgba(120,10,10,0.18) 0 12%, transparent 22%); transform: rotate(-8deg); border-radius: 40%; filter: blur(2px);
+}
+.infection-overlay::after {
+    /* scratched wood / claw marks */
+    content: ""; position: absolute; right: 6%; top: 18%; width: 28%; height: 12%; background-image: linear-gradient(120deg, rgba(255,230,200,0.06) 0 20%, rgba(0,0,0,0.0) 20% 100%); transform: skewX(-16deg); mix-blend-mode: multiply; opacity: 0.65; border-radius: 2px;
+}
+
+/* small piggy footprints (stylized) */
+.piggy-footprints { position: absolute; left: 12%; bottom: 6%; width: 220px; height: 48px; pointer-events: none; }
+.piggy-footprints::before, .piggy-footprints::after { content: ""; position: absolute; width: 22px; height: 14px; background: radial-gradient(circle at 40% 30%, rgba(50,30,10,0.18), rgba(0,0,0,0)); border-radius: 50%; transform: rotate(-12deg); }
+.piggy-footprints::before { left: 0; top: 6px; }
+.piggy-footprints::after { left: 36px; top: 2px; }
+
+/* small 'Piggy' game stamp */
+.piggy-stamp { position: absolute; left: 10px; top: 10px; font-size: 11px; font-weight: 700; color: rgba(255,255,255,0.85); background: rgba(0,0,0,0.35); padding: 3px 6px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.04); }
+
+@media (max-width: 800px) {
+    .piggy-card { flex-direction: column; }
+    .wiki-side { width: 100%; }
+}
+
+/* Distortion background for the page */
+body { background: radial-gradient(circle at 10% 10%, #0a0a0a 0%, #070707 20%, #0b0b0b 60%); color: #e6e6e6; font-family: 'Segoe UI', Arial, sans-serif; }
+
+.piggy-card .wiki-main { flex: 1; background: rgba(18,18,18,0.6); padding: 14px; border-radius: 8px; backdrop-filter: blur(4px) saturate(120%); }
+.wiki-role { color: #ffdddd; margin-top: 6px; }
+
+/* Subtle scanline/distortion overlay */
+.piggy-card::after { content: ""; pointer-events: none; position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px); background-size: 100% 3px; mix-blend-mode: overlay; }
+
+@media (max-width: 800px) {
+    .piggy-card { flex-direction: column; }
+    .wiki-side { width: 100%; }
+}

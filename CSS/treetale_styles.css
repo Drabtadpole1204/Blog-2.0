@@ -1,0 +1,26 @@
+/* treetale_styles.css
+   Styles specific to Treetale image transitions.
+*/
+
+.image-wrap {
+    max-width: 360px;
+    margin: 0 auto 1rem auto;
+    text-align: center;
+}
+
+#sansolotl-portrait {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+    transition: opacity 0.6s ease;
+    opacity: 1;
+}
+
+#sansolotl-portrait.fade-out {
+    opacity: 0;
+}
+
+@media (min-width: 800px) {
+    .image-wrap { max-width: 420px; }
+}
