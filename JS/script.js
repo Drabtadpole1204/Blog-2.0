@@ -102,7 +102,103 @@ const dados = [
         content: "Pacience has a limit...",
         imagem: "../PNG/Sans.png",
         botao: "UndertaleBreakingPoint.html"
-    }
+    },
+    {
+        title: "Leviathan (Ordem Paranormal)",
+        content: "A Custom Beast made by me and a friend for the game called Ordem Paranormal, translated to Paranormal Order.",
+        imagem: "../PNG/Leviathan.png",
+        botao: "OrdemParanormal.html"
+    },
+    {
+        title: "Ctulhu (Ordem Paranormal)",
+        content: "A Custom Beast made by me and a friend for the game called Ordem Paranormal, translated to Paranormal Order.",
+        imagem: "../PNG/Ctulhu.png",
+        botao: "Ctulhu.html"
+    },
+    {
+        title: "Potionhead",
+        content: "The one who will do everything to stop you.",
+        imagem: "../PNG/Potionhead.png",
+        botao: "MinecraftCyber.html"
+    },
+    {
+        title: "Bacon & Sammy",
+        content: "Two Friends Who Have Found Inner Peace.",
+        imagem: "../PNG/Capturas.png",
+        botao: "InnerPeace.html"
+    },
+    {
+        title: "Dr.Fade (Anomaly & Phobia Facility)",
+        content: "The One Who Always Has a Contengency Plan.",
+        imagem: "../PNG/Captura 2.png",
+        botao: "A&PF.html"
+    },
+    {
+        title: "∞/0",
+        content: "The Personification of Everything and Nothing.",
+        imagem: "../PNG/Captura 3.png",
+        botao: "∞0.html"
+    },
+    {
+        title: "Geo (Creatorverse)",
+        content: "A Mysterious Being Created By Pixels.",
+        imagem: "../PNG/Captura 4.png",
+        botao: "CV.html"
+    },
+    {
+        title: "Fright",
+        content: "An Outsider.",
+        imagem: "../PNG/Captura 5.png",
+        botao: "Fright.html"
+    },
+    {
+        title: "Lex (Lextale)",
+        content: "The One Who Aims To Be The Biggest Royal Guard, And Hero Of His World.",
+        imagem: "../PNG/Captura 6.png",
+        botao: "Lextale.html"
+    },
+    {
+        title: "Ralph (Redcliff)",
+        content: "Redcliff General.",
+        imagem: "../PNG/Ralph.png",
+        botao: "Redcliff.html"
+    },
+    {
+        title: "The Strongest Egg",
+        content: "The Strongest Egg.",
+        imagem: "../PNG/The Strongest Egg.png",
+        botao: "TSE.html"
+    },
+    {
+        title: "Scott (Piggy: Distortion)",
+        content: "One Of The Detectives In L.P.D. and Bryan's Twin Brother.",
+        imagem: "../PNG/Scott.png",
+        botao: "Skele.html"
+    },
+    {
+        title: "Bryan (Piggy: Distortion)",
+        content: "A Multi-Trillionaire Skeleton and Scott's Twin Brother.",
+        imagem: "../PNG/Bryan.png",
+        botao: "Skele2.html"
+    },
+    {
+        title: "Doctor  Billy (Piggy: Distortion)",
+        content: "A Scientist Who Worked With Mr.P and Badgy. Now Stuck In This Mess.",
+        imagem: "../PNG/Doctor Billy.png",
+        botao: "Doc.html"
+    },
+    {
+        title: "Monkey (Creatorverse)",
+        content: "Because Why Not?.",
+        imagem: "../PNG/Monke.png",
+        botao: "Monkey.html"
+    },
+    {
+        title: "Bakon (BloodBlox)",
+        content: "Who Will Stop The Craftian At All Costs.",
+        imagem: "../PNG/Captura 7.png",
+        botao: "BloodBlox.html"
+    },
 
 ];
 

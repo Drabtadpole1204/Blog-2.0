@@ -3,7 +3,11 @@
 (function(){
     const imgs = [
         "../PNG/Sans.png",
-        "../PNG/Sans2.png"
+        "../PNG/Sans2.png",
+        "../PNG/UBP.png",
+        "../PNG/UBP2.png",
+        "../PNG/UBP3.png",
+        "../PNG/UBP4.png"
     ];
 
     function startCarousel(){
