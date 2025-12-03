@@ -1,15 +1,15 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Freddy & Friends — Wiki</title>
+    <title>Freddy & Friends â€” Wiki</title>
     <link rel="stylesheet" href="../CSS/wiki.css">
     <link rel="stylesheet" href="../CSS/freddy64_styles.css">
 </head>
 <body>
     <main class="page-content">
-        <h1>Freddy 64 — Wiki</h1>
+        <h1>Freddy 64 â€” Wiki</h1>
 
         <section class="wiki-card freddy64-card" aria-labelledby="ff-title">
             <aside class="wiki-side wiki-image">
@@ -76,11 +76,11 @@
                         <p class="wiki-text">
                             Freddy 64 ended up losing one of his eyes, and his torso was damaged by Prowler, and he lost one of his ears due to Infected Twisted Plushtrap. Freddy 64 amputated his ear so that the infection wouldn't spread through his body, without anesthesia, just with his axe (not the Overkill, a normal axe). This happened during the Infection, but before he acquired the weapons he has. He is usually very charismatic, kind, polite, and friendly, but on one occasion he accidentally caused the Third World War, because during the war between Redcliff and Korblox, Korblox or Redcliff (I don't remember) forced 64 and his friends to fight for the clan, and 64 wanted to start a revolution against Korblox/Redcliff, which was a disaster because both clans declared war on the survivors, and the rest of the world followed along with them. 
                         </p>
-                        <p class="wiki-text">Thanks to the skills and experience of the survivors and some powerful beings on their side, they didn’t fall, but they also didn’t win the war, which almost split the Earth in half, but that did not happen due to the plan that squad 64 developed. An interesting fact is that the Overseers also joined the war against the Survivors. 64 spent a good amount of time separated from their gang during the apocalypse and the war, but fortunately, they reunited during the end of the infection.
+                        <p class="wiki-text">Thanks to the skills and experience of the survivors and some powerful beings on their side, they didnâ€™t fall, but they also didnâ€™t win the war, which almost split the Earth in half, but that did not happen due to the plan that squad 64 developed. An interesting fact is that the Overseers also joined the war against the Survivors. 64 spent a good amount of time separated from their gang during the apocalypse and the war, but fortunately, they reunited during the end of the infection.
                         </p>
                         <p class="wiki-text">Fun Fact:
 
-                            At a certain point during the infection, 64 found a strange yellow crystal in the sea. Little did he know that the crystal trapped a 1-trillion-year-old spirit, which had once been human. He unintentionally freed the being when he touched the crystal. The being entered 64—into his mind, that is. At first, he couldn’t let go of the crystal, until he was possessed by the spirit. He was called 'Possessed 64' in this state, or '64 Possessed,' which meant the spirit was in control of 64’s body. 64 regained control after some time. 
+                            At a certain point during the infection, 64 found a strange yellow crystal in the sea. Little did he know that the crystal trapped a 1-trillion-year-old spirit, which had once been human. He unintentionally freed the being when he touched the crystal. The being entered 64â€”into his mind, that is. At first, he couldnâ€™t let go of the crystal, until he was possessed by the spirit. He was called 'Possessed 64' in this state, or '64 Possessed,' which meant the spirit was in control of 64â€™s body. 64 regained control after some time. 
                         </p>
                         <p class="wiki-text">
                             Initially, his body did not undergo any physical changes, except for his eyes turning completely golden yellow in this state. When he is possessed, his body now changes, but only in color, resembling more of a Golden Freddy, but still 64. The name of this being/spirit is Daemon. When in control of 64, he can do whatever he wants, with consequences like lack of energy and fatigue affecting not him, but 64 when he regains control.
@@ -100,8 +100,55 @@
     <script src="../JS/freddy64_switch.js" defer></script>
 
 <audio autoplay loop>
-  <source src="../Músicas/FNaF World OST - Battle Theme Adventure.mp3" type="audio/mpeg">
-  Seu navegador não suporta áudio HTML5.
+  <source src="../MÃºsicas/FNaF World OST - Battle Theme Adventure.mp3" type="audio/mpeg">
+  Seu navegador nÃ£o suporta Ã¡udio HTML5.
 </audio>
+
+    <!-- Path fixing script for GitHub Pages image/audio loading -->
+    <script>
+    (function(){
+        function normalizeKey(p){
+            p = p.replace(/^https?:\/\/.+?\//,'');
+            p = p.replace(/^\.\/?/,'');
+            p = p.normalize('NFD').replace(/\p{Diacritic}/gu,'').toLowerCase();
+            p = p.replace(/\\/g,'/');
+            p = p.replace(/[^a-z0-9.\/_-]+/g,'-');
+            p = p.replace(/-+/g,'-');
+            p = p.replace(/^[-]+|[-]+$/g,'');
+            return p;
+        }
+        async function fixPaths(){
+            let resp;
+            try{ resp = await fetch('../assets-manifest.json'); }catch(e){ return; }
+            if(!resp.ok) return;
+            const manifest = await resp.json();
+            const attrs = [{sel:'img',attr:'src'},{sel:'audio',attr:'src'},{sel:'source',attr:'src'},{sel:'a',attr:'href'}];
+            for(const {sel,attr} of attrs){
+                document.querySelectorAll(sel).forEach(async el => {
+                    const val = el.getAttribute(attr);
+                    if(!val) return;
+                    if(/^https?:|^data:/.test(val)) return;
+                    try{
+                        const r = await fetch(val, {method:'HEAD'});
+                        if(r.ok) return;
+                    }catch(e){/*ignore*/}
+                    const key = normalizeKey(val);
+                    if(manifest[key]){
+                        el.setAttribute(attr, manifest[key]);
+                    } else {
+                        const key2 = normalizeKey('png/'+val.split('/').pop());
+                        const key3 = normalizeKey('musicas/'+val.split('/').pop());
+                        if(manifest[key2]) el.setAttribute(attr, manifest[key2]);
+                        else if(manifest[key3]) el.setAttribute(attr, manifest[key3]);
+                    }
+                });
+            }
+        }
+        if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', fixPaths);
+        else fixPaths();
+    })();
+    </script>
+
 </body>
 </html>
+

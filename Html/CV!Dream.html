@@ -1,14 +1,14 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>CV!Dream — Wiki</title>
+	<title>CV!Dream â€” Wiki</title>
 	<link rel="stylesheet" href="../CSS/wiki.css">
 </head>
 <body>
 	<main class="page-content">
-		<h1>CV!Dream — Wiki</h1>
+		<h1>CV!Dream â€” Wiki</h1>
 
 		<section class="wiki-card" aria-labelledby="cvdream-title">
 			<aside class="wiki-side wiki-image">
@@ -46,7 +46,7 @@
 
 					<article id="tab-au" role="tabpanel" aria-labelledby="tab-btn-au" hidden>
 						<h3>AU</h3>
-						<p class="wiki-text">Creatorverse — a multiverse of creation, and much more. CV!Dream is the twin brother of CV!Nightmare and once shared a complex bond with him, but no longer. Creatorverse Dream also affects the deities with its powers.
+						<p class="wiki-text">Creatorverse â€” a multiverse of creation, and much more. CV!Dream is the twin brother of CV!Nightmare and once shared a complex bond with him, but no longer. Creatorverse Dream also affects the deities with its powers.
                         </p>
 					</article>
 				</section>
@@ -56,8 +56,55 @@
 
 	<script src="../JS/wiki.js" defer></script>
 	<audio autoplay loop>
-  <source src="../Músicas/toby fox - UNDERTALE Soundtrack - 90 His Theme.mp3" type="audio/mpeg">
-  Seu navegador não suporta áudio HTML5.
+  <source src="../MÃºsicas/toby fox - UNDERTALE Soundtrack - 90 His Theme.mp3" type="audio/mpeg">
+  Seu navegador nÃ£o suporta Ã¡udio HTML5.
 </audio>
+
+    <!-- Path fixing script for GitHub Pages image/audio loading -->
+    <script>
+    (function(){
+        function normalizeKey(p){
+            p = p.replace(/^https?:\/\/.+?\//,'');
+            p = p.replace(/^\.\/?/,'');
+            p = p.normalize('NFD').replace(/\p{Diacritic}/gu,'').toLowerCase();
+            p = p.replace(/\\/g,'/');
+            p = p.replace(/[^a-z0-9.\/_-]+/g,'-');
+            p = p.replace(/-+/g,'-');
+            p = p.replace(/^[-]+|[-]+$/g,'');
+            return p;
+        }
+        async function fixPaths(){
+            let resp;
+            try{ resp = await fetch('../assets-manifest.json'); }catch(e){ return; }
+            if(!resp.ok) return;
+            const manifest = await resp.json();
+            const attrs = [{sel:'img',attr:'src'},{sel:'audio',attr:'src'},{sel:'source',attr:'src'},{sel:'a',attr:'href'}];
+            for(const {sel,attr} of attrs){
+                document.querySelectorAll(sel).forEach(async el => {
+                    const val = el.getAttribute(attr);
+                    if(!val) return;
+                    if(/^https?:|^data:/.test(val)) return;
+                    try{
+                        const r = await fetch(val, {method:'HEAD'});
+                        if(r.ok) return;
+                    }catch(e){/*ignore*/}
+                    const key = normalizeKey(val);
+                    if(manifest[key]){
+                        el.setAttribute(attr, manifest[key]);
+                    } else {
+                        const key2 = normalizeKey('png/'+val.split('/').pop());
+                        const key3 = normalizeKey('musicas/'+val.split('/').pop());
+                        if(manifest[key2]) el.setAttribute(attr, manifest[key2]);
+                        else if(manifest[key3]) el.setAttribute(attr, manifest[key3]);
+                    }
+                });
+            }
+        }
+        if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', fixPaths);
+        else fixPaths();
+    })();
+    </script>
+
 </body>
 </html>
+

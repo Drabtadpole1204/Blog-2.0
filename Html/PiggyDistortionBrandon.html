@@ -1,15 +1,15 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Piggy Distortion — Brandon — Wiki</title>
+    <title>Piggy Distortion â€” Brandon â€” Wiki</title>
     <link rel="stylesheet" href="../CSS/wiki.css">
     <link rel="stylesheet" href="../CSS/piggy_styles.css">
 </head>
 <body>
     <main class="page-content">
-        <h1>Piggy Distortion — Brandon</h1>
+        <h1>Piggy Distortion â€” Brandon</h1>
 
         <section class="wiki-card piggy-card" aria-labelledby="pb-title">
             <aside class="wiki-side wiki-image">
@@ -34,7 +34,7 @@
                 <section class="wiki-content">
                     <article id="tab-story" role="tabpanel" aria-labelledby="tab-btn-story">
                         <h3>Story</h3>
-                        <p class="wiki-text">Brandon is the most powerful infected enemy in Piggy Distortion — an entity spreading infection and causing chaos across the multiverse. Under the command of T.I.O.</p>
+                        <p class="wiki-text">Brandon is the most powerful infected enemy in Piggy Distortion â€” an entity spreading infection and causing chaos across the multiverse. Under the command of T.I.O.</p>
                     </article>
 
                     <article id="tab-abilities" role="tabpanel" aria-labelledby="tab-btn-abilities" hidden>
@@ -64,8 +64,55 @@
     <script src="../JS/wiki.js" defer></script>
     <script src="../JS/piggy_wiki.js" defer></script>
     <audio autoplay loop>
-  <source src="../Músicas/The Only Thing I Know For Real (Maniac Agenda Mix) - Metal Gear Rising- Revengeance [Vocal OST].mp3" type="audio/mpeg">
-  Seu navegador não suporta áudio HTML5.
+  <source src="../MÃºsicas/The Only Thing I Know For Real (Maniac Agenda Mix) - Metal Gear Rising- Revengeance [Vocal OST].mp3" type="audio/mpeg">
+  Seu navegador nÃ£o suporta Ã¡udio HTML5.
 </audio>
+
+    <!-- Path fixing script for GitHub Pages image/audio loading -->
+    <script>
+    (function(){
+        function normalizeKey(p){
+            p = p.replace(/^https?:\/\/.+?\//,'');
+            p = p.replace(/^\.\/?/,'');
+            p = p.normalize('NFD').replace(/\p{Diacritic}/gu,'').toLowerCase();
+            p = p.replace(/\\/g,'/');
+            p = p.replace(/[^a-z0-9.\/_-]+/g,'-');
+            p = p.replace(/-+/g,'-');
+            p = p.replace(/^[-]+|[-]+$/g,'');
+            return p;
+        }
+        async function fixPaths(){
+            let resp;
+            try{ resp = await fetch('../assets-manifest.json'); }catch(e){ return; }
+            if(!resp.ok) return;
+            const manifest = await resp.json();
+            const attrs = [{sel:'img',attr:'src'},{sel:'audio',attr:'src'},{sel:'source',attr:'src'},{sel:'a',attr:'href'}];
+            for(const {sel,attr} of attrs){
+                document.querySelectorAll(sel).forEach(async el => {
+                    const val = el.getAttribute(attr);
+                    if(!val) return;
+                    if(/^https?:|^data:/.test(val)) return;
+                    try{
+                        const r = await fetch(val, {method:'HEAD'});
+                        if(r.ok) return;
+                    }catch(e){/*ignore*/}
+                    const key = normalizeKey(val);
+                    if(manifest[key]){
+                        el.setAttribute(attr, manifest[key]);
+                    } else {
+                        const key2 = normalizeKey('png/'+val.split('/').pop());
+                        const key3 = normalizeKey('musicas/'+val.split('/').pop());
+                        if(manifest[key2]) el.setAttribute(attr, manifest[key2]);
+                        else if(manifest[key3]) el.setAttribute(attr, manifest[key3]);
+                    }
+                });
+            }
+        }
+        if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', fixPaths);
+        else fixPaths();
+    })();
+    </script>
+
 </body>
 </html>
+

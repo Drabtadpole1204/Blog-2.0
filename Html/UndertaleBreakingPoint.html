@@ -1,14 +1,14 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Undertale: Breaking Point — Wiki</title>
+	<title>Undertale: Breaking Point â€” Wiki</title>
 	<link rel="stylesheet" href="../CSS/wiki.css">
 </head>
 <body>
 	<main class="page-content">
-		<h1>Undertale: Breaking Point — Wiki</h1>
+		<h1>Undertale: Breaking Point â€” Wiki</h1>
 
 		<section class="wiki-card" aria-labelledby="ubp-title">
 			<aside class="wiki-side wiki-image">
@@ -59,9 +59,56 @@
 	<script src="../JS/ubp-wiki.js" defer></script>
 
 	    <audio autoplay loop>
-  <source src="../Músicas/16 - Kenichi Tokoi - Battle with Death Queen [Battle with Zavok Remix].mp3" type="audio/mpeg">
-  Seu navegador não suporta áudio HTML5.
+  <source src="../MÃºsicas/16 - Kenichi Tokoi - Battle with Death Queen [Battle with Zavok Remix].mp3" type="audio/mpeg">
+  Seu navegador nÃ£o suporta Ã¡udio HTML5.
 </audio>
+
+    <!-- Path fixing script for GitHub Pages image/audio loading -->
+    <script>
+    (function(){
+        function normalizeKey(p){
+            p = p.replace(/^https?:\/\/.+?\//,'');
+            p = p.replace(/^\.\/?/,'');
+            p = p.normalize('NFD').replace(/\p{Diacritic}/gu,'').toLowerCase();
+            p = p.replace(/\\/g,'/');
+            p = p.replace(/[^a-z0-9.\/_-]+/g,'-');
+            p = p.replace(/-+/g,'-');
+            p = p.replace(/^[-]+|[-]+$/g,'');
+            return p;
+        }
+        async function fixPaths(){
+            let resp;
+            try{ resp = await fetch('../assets-manifest.json'); }catch(e){ return; }
+            if(!resp.ok) return;
+            const manifest = await resp.json();
+            const attrs = [{sel:'img',attr:'src'},{sel:'audio',attr:'src'},{sel:'source',attr:'src'},{sel:'a',attr:'href'}];
+            for(const {sel,attr} of attrs){
+                document.querySelectorAll(sel).forEach(async el => {
+                    const val = el.getAttribute(attr);
+                    if(!val) return;
+                    if(/^https?:|^data:/.test(val)) return;
+                    try{
+                        const r = await fetch(val, {method:'HEAD'});
+                        if(r.ok) return;
+                    }catch(e){/*ignore*/}
+                    const key = normalizeKey(val);
+                    if(manifest[key]){
+                        el.setAttribute(attr, manifest[key]);
+                    } else {
+                        const key2 = normalizeKey('png/'+val.split('/').pop());
+                        const key3 = normalizeKey('musicas/'+val.split('/').pop());
+                        if(manifest[key2]) el.setAttribute(attr, manifest[key2]);
+                        else if(manifest[key3]) el.setAttribute(attr, manifest[key3]);
+                    }
+                });
+            }
+        }
+        if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', fixPaths);
+        else fixPaths();
+    })();
+    </script>
+
 </body>
 </html>
+
 
