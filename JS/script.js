@@ -124,79 +124,79 @@ const dados = [
     {
         title: "Bacon & Sammy",
         content: "Two Friends Who Have Found Inner Peace.",
-        imagem: "PNG/Capturas.PNG",
+        imagem: "PNG/Capturas.png",
         botao: "Html/InnerPeace.html"
     },
     {
         title: "Dr.Fade (Anomaly & Phobia Facility)",
         content: "The One Who Always Has a Contengency Plan.",
-        imagem: "PNG/Captura 2.PNG",
+        imagem: "PNG/Captura 2.png",
         botao: "Html/A&PF.html"
     },
     {
         title: "∞/0",
         content: "The Personification of Everything and Nothing.",
-        imagem: "PNG/Captura 3.PNG",
+        imagem: "PNG/Captura 3.png",
         botao: "Html/∞0.html"
     },
     {
         title: "Geo (Creatorverse)",
         content: "A Mysterious Being Created By Pixels.",
-        imagem: "PNG/Captura 4.PNG",
+        imagem: "PNG/Captura 4.png",
         botao: "Html/CV.html"
     },
     {
         title: "Fright",
         content: "An Outsider.",
-        imagem: "PNG/Captura 5.PNG",
+        imagem: "PNG/Captura 5.png",
         botao: "Html/Fright.html"
     },
     {
         title: "Lex (Lextale)",
         content: "The One Who Aims To Be The Biggest Royal Guard, And Hero Of His World.",
-        imagem: "PNG/Captura 6.PNG",
+        imagem: "PNG/Captura 6.png",
         botao: "Html/Lextale.html"
     },
     {
         title: "Ralph (Redcliff)",
         content: "Redcliff General.",
-        imagem: "PNG/Ralph.PNG",
+        imagem: "PNG/Ralph.png",
         botao: "Html/Redcliff.html"
     },
     {
         title: "The Strongest Egg",
         content: "The Strongest Egg.",
-        imagem: "PNG/The Strongest Egg.PNG",
+        imagem: "PNG/The Strongest Egg.png",
         botao: "Html/TSE.html"
     },
     {
         title: "Scott (Piggy: Distortion)",
         content: "One Of The Detectives In L.P.D. and Bryan's Twin Brother.",
-        imagem: "PNG/Scott.PNG",
+        imagem: "PNG/Scott.png",
         botao: "Html/Skele.html"
     },
     {
         title: "Bryan (Piggy: Distortion)",
         content: "A Multi-Trillionaire Skeleton and Scott's Twin Brother.",
-        imagem: "PNG/Bryan.PNG",
+        imagem: "PNG/Bryan.png",
         botao: "Html/Skele2.html"
     },
     {
         title: "Doctor  Billy (Piggy: Distortion)",
         content: "A Scientist Who Worked With Mr.P and Badgy. Now Stuck In This Mess.",
-        imagem: "PNG/Doctor Billy.PNG",
+        imagem: "PNG/Doctor Billy.png",
         botao: "Html/Doc.html"
     },
     {
         title: "Monkey (Creatorverse)",
         content: "Because Why Not?.",
-        imagem: "PNG/Monke.PNG",
+        imagem: "PNG/Monke.png",
         botao: "Html/Monkey.html"
     },
     {
         title: "Bakon (BloodBlox)",
         content: "Who Will Stop The Craftian At All Costs.",
-        imagem: "PNG/Captura 7.PNG",
+        imagem: "PNG/Captura 7.png",
         botao: "Html/BloodBlox.html"
     },
 
