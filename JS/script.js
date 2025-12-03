@@ -237,14 +237,16 @@ function loadNews() {
 document.addEventListener('DOMContentLoaded', loadNews);
 
 //exemplo de interatividade menu responsivo
-const nav = document.getElementById('main-nav');
-const toggle = document.querySelector('.menu-toggle');
+document.addEventListener('DOMContentLoaded', () => {
+    const nav = document.getElementById('main-nav');
+    const toggle = document.querySelector('.menu-toggle');
 
-if (toggle) {
-    toggle.addEventListener('click', () => {
-        nav.classList.toggle('active');
-    });
-}
+    if (toggle && nav) {
+        toggle.addEventListener('click', () => {
+            nav.classList.toggle('active');
+        });
+    }
+});
 
 // --- path-fix helper: tries to repair broken src/href by consulting assets-manifest.json ---
 (function(){
