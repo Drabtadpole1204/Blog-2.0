@@ -30,7 +30,14 @@ header{
 
 .news-item img{
     width: 100%;
-    height: 300px;
+    height: auto;
+    border-radius: 4px;
+}
+
+/* Force consistent visible size for specific images that have extra whitespace/aspect ratio */
+.news-item img.large-news-img {
+    width: 100%;
+    height: 500px; /* match other cards visually */
     object-fit: cover;
     border-radius: 4px;
 }
