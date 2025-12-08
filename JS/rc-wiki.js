@@ -24,10 +24,11 @@
             imgEl.style.opacity = '0';
             setTimeout(()=>{
                 imgEl.src = imgs[idx];
-                // force reflow
                 void imgEl.offsetWidth;
+            }, 150);
+            setTimeout(()=>{
                 imgEl.style.opacity = '1';
-            }, 300);
+            }, 150);
         }, 10000);
     }
 
