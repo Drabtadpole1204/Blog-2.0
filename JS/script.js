@@ -3,7 +3,7 @@ const dados = [
     {
         title: "Sansolote (Treetale)",
         content: "From the Treetale AU, one of my first AUs.",
-        imagem: "PNG/Sansolote no Photopea v1.png",
+        imagem: "./PNG/Sansolote no Photopea v1.png",
         botao: "./Html/Treetale.html"
     },
     {
