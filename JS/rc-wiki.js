@@ -2,9 +2,9 @@
 // switches between two images every 10s with a fade
 (function(){
     const imgs = [
-        "../PNG/Ralph.png",
-        "../PNG/Ralph2.png",
-        "../PNG/Ralph3.png"
+        "../PNG/Ralph.PNG",
+        "../PNG/Ralph2.PNG",
+        "../PNG/Ralph3.PNG"
     ];
 
     function startCarousel(){

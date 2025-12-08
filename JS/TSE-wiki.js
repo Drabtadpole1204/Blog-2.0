@@ -2,8 +2,8 @@
 // switches between two images every 10s with a fade
 (function(){
     const imgs = [
-        "../PNG/The Strongest Egg.png",
-        "../PNG/Egg.png",
+        "../PNG/The Strongest Egg.PNG",
+        "../PNG/Egg.PNG",
     ];
 
     function startCarousel(){

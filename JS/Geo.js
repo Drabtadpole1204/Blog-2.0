@@ -3,8 +3,8 @@
 (function(){
     const imgs = [
         "../PNG/Captura 4.png",
-        "../PNG/Geo2.png",
-        "../PNG/Geo3.png",
+        "../PNG/Geo2.PNG",
+        "../PNG/Geo3.PNG",
 
 
     ];

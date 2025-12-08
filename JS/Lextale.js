@@ -3,8 +3,8 @@
 (function(){
     const imgs = [
         "../PNG/Captura 6.png",
-        "../PNG/Timeskip Lex.png",
-        "../PNG/Lex2.png"
+        "../PNG/Timeskip Lex.PNG",
+        "../PNG/Lex2.PNG"
 
 
     ];
