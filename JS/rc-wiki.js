@@ -16,7 +16,7 @@
         const found = imgs.findIndex(p => p.split('/').pop() === currentFile);
         idx = found >= 0 ? found : 0;
 
-        imgEl.style.transition = 'opacity 600ms ease';
+        imgEl.style.transition = 'opacity 300ms ease';
         imgEl.style.opacity = '1';
 
         setInterval(()=>{
@@ -27,7 +27,7 @@
                 // force reflow
                 void imgEl.offsetWidth;
                 imgEl.style.opacity = '1';
-            }, 650);
+            }, 300);
         }, 10000);
     }
 

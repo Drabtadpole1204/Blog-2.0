@@ -2,7 +2,7 @@
 // switches between two images every 10s with a fade
 (function(){
     const imgs = [
-        "../PNG/Captura 4.png",
+        "../PNG/Captura 4.PNG",
         "../PNG/Geo2.PNG",
         "../PNG/Geo3.PNG",
 

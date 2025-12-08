@@ -2,7 +2,7 @@
 // switches between two images every 10s with a fade
 (function(){
     const imgs = [
-        "../PNG/Captura 6.png",
+        "../PNG/Captura 6.PNG",
         "../PNG/Timeskip Lex.PNG",
         "../PNG/Lex2.PNG"
 
@@ -18,7 +18,7 @@
         const found = imgs.findIndex(p => p.split('/').pop() === currentFile);
         idx = found >= 0 ? found : 0;
 
-        imgEl.style.transition = 'opacity 600ms ease';
+        imgEl.style.transition = 'opacity 300ms ease';
         imgEl.style.opacity = '1';
 
         setInterval(()=>{
@@ -29,7 +29,7 @@
                 // force reflow
                 void imgEl.offsetWidth;
                 imgEl.style.opacity = '1';
-            }, 650);
+            }, 300);
         }, 10000);
     }
 
