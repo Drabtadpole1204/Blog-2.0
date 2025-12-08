@@ -3,7 +3,7 @@ const dados = [
     {
         title: "Sansolote (Treetale)",
         content: "From the Treetale AU, one of my first AUs.",
-        imagem: "./PNG/Sansolote no Photopea v1.png",
+        imagem: "PNG/Sansolote no Photopea v1.png",
         botao: "./Html/Treetale.html"
     },
     {
@@ -154,7 +154,7 @@ const dados = [
     {
         title: "Lex (Lextale)",
         content: "The One Who Aims To Be The Biggest Royal Guard, And Hero Of His World.",
-        imagem: "PNG/Captura 6.png",
+        imagem: "./PNG/Captura 6.png",
         botao: "./Html/Lextale.html"
     },
     {
