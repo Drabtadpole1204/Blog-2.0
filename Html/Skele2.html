@@ -14,7 +14,7 @@
         <section class="wiki-card piggy-card" aria-labelledby="pd-title">
             <aside class="wiki-side wiki-image">
                 <div class="image-wrap">
-                    <img id="piggy-portrait" src="../PNG/Bryan.png" alt="Piggy Distortion portrait" data-alt-src="../PNG/Bryan.png">
+                    <img id="piggy-portrait" src="../PNG/Bryan.png" alt="Character image" data-alt-src="../PNG/Bryan.png">
                 </div>
                 <div class="piggy-badges">
                     <span class="badge survivor">Survivor</span>
@@ -68,7 +68,7 @@
   Seu navegador nÃ£o suporta Ã¡udio HTML5.
 </audio>
 
-    <!-- Path fixing script for GitHub Pages image/audio loading -->
+        <!-- Path fixing script for GitHub Pages image/audio loading -->
     <script>
     (function(){
         function normalizeKey(p){
@@ -83,7 +83,12 @@
         }
         async function fixPaths(){
             let resp;
-            try{ resp = await fetch('../assets-manifest.json'); }catch(e){ return; }
+            try{ 
+                const manifestPath = new URL('../assets-manifest.json', document.currentScript?.src || window.location.href).href;
+                resp = await fetch(manifestPath); 
+            }catch(e){ 
+                return; 
+            }
             if(!resp.ok) return;
             const manifest = await resp.json();
             const attrs = [{sel:'img',attr:'src'},{sel:'audio',attr:'src'},{sel:'source',attr:'src'},{sel:'a',attr:'href'}];
@@ -115,5 +120,7 @@
 
 </body>
 </html>
+
+
 
 

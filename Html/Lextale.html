@@ -13,7 +13,7 @@
 		<section class="wiki-card" aria-labelledby="ubp-title">
 			<aside class="wiki-side wiki-image">
 				<div class="image-wrap">
-					<img id="LT-portrait" src="../PNG/Captura 6.png" alt="Lex portrait">
+					<img id="LT-portrait" src="../PNG/Captura 6.png" alt="Character image">
 				</div>
 				<h2 id="ubp-title">Lex</h2>
 				<p class="wiki-role">Protagonist / Hybrid</p>
@@ -63,7 +63,7 @@
   Seu navegador nÃ£o suporta Ã¡udio HTML5.
 </audio>
 
-    <!-- Path fixing script for GitHub Pages image/audio loading -->
+        <!-- Path fixing script for GitHub Pages image/audio loading -->
     <script>
     (function(){
         function normalizeKey(p){
@@ -78,7 +78,12 @@
         }
         async function fixPaths(){
             let resp;
-            try{ resp = await fetch('../assets-manifest.json'); }catch(e){ return; }
+            try{ 
+                const manifestPath = new URL('../assets-manifest.json', document.currentScript?.src || window.location.href).href;
+                resp = await fetch(manifestPath); 
+            }catch(e){ 
+                return; 
+            }
             if(!resp.ok) return;
             const manifest = await resp.json();
             const attrs = [{sel:'img',attr:'src'},{sel:'audio',attr:'src'},{sel:'source',attr:'src'},{sel:'a',attr:'href'}];
@@ -110,6 +115,8 @@
 
 </body>
 </html>
+
+
 
 
 

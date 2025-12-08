@@ -15,7 +15,7 @@
             <aside class="wiki-side wiki-image">
                 <div class="image-wrap">
                     <!-- Frames sequence: 64 -> Freddy64 -> Freddy (if present) -> Posessed64 -> Daemon -->
-                    <img id="ff-portrait" src="../PNG/64.png" data-frames="../PNG/64.png|../PNG/Freddy64.png|../PNG/Posessed64.png|../PNG/Daemon.png" alt="Freddy portrait">
+                    <img id="ff-portrait" src="../PNG/64.png" data-frames="../PNG/64.png|../PNG/Freddy64.png|../PNG/Posessed64.png|../PNG/Daemon.png" alt="Character image">
                 </div>
                 <h2 id="ff-title">Freddy 64 & Daemon</h2>
                 <p class="wiki-role">Freddy: Protagonist / Group Leader//
@@ -104,7 +104,7 @@
   Seu navegador nÃ£o suporta Ã¡udio HTML5.
 </audio>
 
-    <!-- Path fixing script for GitHub Pages image/audio loading -->
+        <!-- Path fixing script for GitHub Pages image/audio loading -->
     <script>
     (function(){
         function normalizeKey(p){
@@ -119,7 +119,12 @@
         }
         async function fixPaths(){
             let resp;
-            try{ resp = await fetch('../assets-manifest.json'); }catch(e){ return; }
+            try{ 
+                const manifestPath = new URL('../assets-manifest.json', document.currentScript?.src || window.location.href).href;
+                resp = await fetch(manifestPath); 
+            }catch(e){ 
+                return; 
+            }
             if(!resp.ok) return;
             const manifest = await resp.json();
             const attrs = [{sel:'img',attr:'src'},{sel:'audio',attr:'src'},{sel:'source',attr:'src'},{sel:'a',attr:'href'}];
@@ -151,5 +156,7 @@
 
 </body>
 </html>
+
+
 
 
