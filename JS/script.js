@@ -302,3 +302,5 @@ document.addEventListener('DOMContentLoaded', () => {
     if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', fixPaths);
     else fixPaths();
 })();
+
+console.log();
