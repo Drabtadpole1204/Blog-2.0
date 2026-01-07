@@ -3,21 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog</title>
+    <title>Blog - Page 2</title>
     <link rel="stylesheet" href="./CSS/style.css">
 </head>
 <body>
     <header>
-        <h1>My Blog - Undertale Aus/Projects/Creatorverse</h1>
+        <h1>My Blog - Undertale AUs/Projects/Creatorverse</h1>
         <nav id="main-nav"></nav>
         <button class="menu-toggle">Did it take long? Yes, but it was worth it. Rights of the songs used goes to their respective owners.</button>
-        <!--Audio (muted autoplay to satisfy browser policies) -->
-        <audio id="bg-audio" autoplay loop muted>
-            <source src="./Músicas/Undertale OST - 002 Start Menu.mp3" type="audio/mpeg">
-            Your browser does not support the audio element.
+        <!--Audio-->
+        <audio autoplay loop>
+            <source src="./Músicas/Undertale OST - 093 Menu (Full).mp3" type="audio/mpeg">
         </audio>
-        <!-- Play/pause toggle (click anywhere to enable sound) -->
-        <button id="bg-audio-toggle" aria-pressed="false" style="position:fixed;right:16px;bottom:16px;z-index:9999;background:#000;color:#fff;border-radius:8px;padding:8px 10px;border:none;cursor:pointer;">Play music</button>
         <!-- Pagination -->
         <nav class="pagination" aria-label="Pagination">
             <a href="./index.html" aria-current="page" style="display:inline-block; border-bottom:3px solid #000; padding-bottom:4px; margin-right:8px;">1</a>
@@ -29,7 +26,7 @@
             <a href="./page7.html" style="margin-right:8px;">7</a>
             <a href="./page8.html" style="margin-right:8px;">8</a>
             <a href="./page9.html" style="margin-right:12px;">9</a>
-            <a href="./page2.html" aria-label="Next" style="margin-left:12px;"></a>
+            <a href="./page2.html" aria-label="Next" style="margin-left:12px;">›</a>
         </nav>
     </header>
 <main id="news-container">
@@ -93,78 +90,6 @@
         }
         if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', fixPaths);
         else fixPaths();
-    })();
-
-    // Audio control: unmute on user interaction and provide a visible toggle
-    (function(){
-        function setupAudio(){
-            const audio = document.getElementById('bg-audio');
-            const btn = document.getElementById('bg-audio-toggle');
-            if(!audio || !btn) return;
-
-            const STORAGE_KEY = 'bg-music-enabled';
-
-            // helper
-            function updateButton(){
-                if(audio.paused) btn.textContent = 'Play music';
-                else if(audio.muted) btn.textContent = 'Unmute music';
-                else btn.textContent = 'Pause music';
-                btn.setAttribute('aria-pressed', String(!audio.paused && !audio.muted));
-            }
-
-            // try to play muted (allowed by browsers)
-            audio.play().catch(()=>{});
-
-            // If user previously enabled music, try restore setting (will only succeed if browser allows)
-            const wasEnabled = localStorage.getItem(STORAGE_KEY) === '1';
-            if(wasEnabled){
-                audio.muted = false;
-                audio.play().then(()=>{ updateButton(); }).catch(()=>{ audio.muted = true; updateButton(); });
-            }
-
-            // If navigated here from another page on the same site, browsers often treat that as a user gesture
-            try{
-                if(document.referrer){
-                    const ref = new URL(document.referrer);
-                    if(ref.origin === location.origin){
-                        // attempt to unmute and play
-                        audio.muted = false;
-                        audio.play().then(()=>{ localStorage.setItem(STORAGE_KEY,'1'); updateButton(); }).catch(()=>{ audio.muted = true; updateButton(); });
-                    }
-                }
-            }catch(e){/*ignore*/}
-
-            // Unlock audio on common user gestures
-            function unlock(){
-                audio.play().then(()=>{ audio.muted = false; localStorage.setItem(STORAGE_KEY,'1'); updateButton(); }).catch(()=>{ /* still blocked */ updateButton(); });
-                removeListeners();
-            }
-
-            function removeListeners(){
-                document.removeEventListener('pointerdown', unlock);
-                document.removeEventListener('keydown', unlock);
-                document.removeEventListener('touchstart', unlock);
-                document.removeEventListener('click', unlock);
-            }
-
-            document.addEventListener('pointerdown', unlock, {once:true});
-            document.addEventListener('keydown', unlock, {once:true});
-            document.addEventListener('touchstart', unlock, {once:true});
-            // keep legacy click as well
-            document.addEventListener('click', unlock, {once:true});
-
-            btn.addEventListener('click', function(){
-                if(audio.paused){
-                    audio.play().then(()=>{ audio.muted = false; localStorage.setItem(STORAGE_KEY,'1'); updateButton(); }).catch(()=>{ updateButton(); });
-                } else {
-                    audio.pause(); localStorage.removeItem(STORAGE_KEY); updateButton();
-                }
-            });
-
-            updateButton();
-        }
-        if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', setupAudio);
-        else setupAudio();
     })();
     </script>
 
