@@ -1,0 +1,136 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Creatorverse - Wiki</title>
+	<link rel="stylesheet" href="../CSS/wiki.css">
+</head>
+<body>
+	<main class="page-content">
+		<h1>Omega Matrix!Sans - Wiki</h1>
+
+		<section class="wiki-card" aria-labelledby="ubp-title">
+			<aside class="wiki-side wiki-image">
+				<div class="image-wrap">
+					<img id="ubp-portrait" src="../PNG/Omega Matrix V2.png" alt="Character image">
+				</div>
+				<h2 id="ubp-title">Omega Matrix!Sans</h2>
+				<p class="wiki-role">Side Character / Guardian</p>
+			</aside>
+
+			<div class="wiki-main">
+				<nav class="wiki-tabs" role="tablist" aria-label="Breaking Point sections">
+					<button role="tab" aria-selected="true" aria-controls="ubp-tab-story" id="ubp-tab-btn-story" class="active">Story</button>
+					<button role="tab" aria-selected="false" aria-controls="ubp-tab-abilities" id="ubp-tab-btn-abilities">Abilities</button>
+					<button role="tab" aria-selected="false" aria-controls="ubp-tab-au" id="ubp-tab-btn-au">AU</button>
+				</nav>
+
+				<section class="wiki-content">
+					<article id="ubp-tab-story" role="tabpanel" aria-labelledby="ubp-tab-btn-story">
+						<h3>Story</h3>
+						<p class="wiki-text"><strong>Omega Matrix! Sans</strong> was once a normal Sans, who lived in the <strong>Omega Timeline</strong> ever since <strong>Error Sans</strong> destroyed his timeline, but this Sans was chosen by the <strong>Matrix of Infinity</strong>, a indestructible cube with an infinite amount of power. The Matrix chose this Sans to be the wielder of its power, and be its guardian. The Matrix made his right arm be fully Matrix, so that other recognize who he is.</p>
+
+					</article>
+
+					<article id="ubp-tab-abilities" role="tabpanel" aria-labelledby="ubp-tab-btn-abilities" hidden>
+						<h3>Abilities</h3>
+						<ul class="ability-list">
+							<li><strong>Matrix Touch:</strong> He can turn whatever he wishes to into Matrix when he touches it. He can control and manipulate the Matrix then.</li>
+                            <li><strong>Absorption:</strong> Can absorb people's powers, this has no effect on those who are above him like CV!Dream and CV!Nightmare.</li>
+                            <li><strong>Teleportation:</strong> Self-explanatory.</li>
+                            <li><strong>Blue Bone:</strong> Self-explanatory, to avoid damage, stay still.</li>
+                            <li><strong>Orange bones:</strong> Self-explanatory, to avoid damage, move.</li>
+                            <li><strong>Spinning Bone:</strong> Long bones that will spin while forming an X.</li>
+                            <li><strong>Matrix Spinning Bone:</strong> Long bones that will spin while forming an X can cause sluggishness, or temporary blindness when touched.</li>
+                            <li><strong>Thunders:</strong> Can create and use Pixel Thunders.</li>
+                            <li><strong>Gaster Blaster:</strong>Gaster Blaster.</li>
+                            <li><strong>Telekinesis:</strong> Pretty much like Sans' telekinesis.</li>
+                            <li><strong>Clones:</strong> Can create clones.</li>
+                            <li><strong>Matrix Blaster:</strong> A Gaster Blaster that uses power from the Matrix of Infinity. Deals more damage to the target and has a small chance of turning a part of their body into Matrix.</li>
+                            <li><strong>Binary Scythe :</strong> A Scythe made from Binary code.</li>
+                            <li><strong>Strings:</strong> Threads like Error Sans, used for attack, defense, distraction. except he doesn't have them under his eye sockets, he creates it out of thin air</li>
+                            <li><strong>Immunity (Passive):</strong> He is immune to attacks made to damage/destroy code.</li>
+
+						</ul>
+					</article>
+
+					<article id="ubp-tab-au" role="tabpanel" aria-labelledby="ubp-tab-btn-au" hidden>
+						<h3>AU</h3>
+						<p class="wiki-text">Although he is called Omega Matrix!Sans, everyone in the multiverse calls him Matrix, he resides in a dimension outside the multiverse, he goes to visit the Omega Timeline sometimes, he is good friends with Sub Z and Sub Y from Professional!Tale, another AU of mine.</p>
+                        <p class="wiki-text">He has forms, like<strong> T.E.X.T.U.R.E</strong>, <strong>Matrix of Infinity</strong>, and<strong> E.V.O.L.U.T.I.O.N</strong>, respectively.</p>
+                        <p class="wiki-text"><strong>He can manipulate and textures with the form called "T.E.X.T.U.R.E".</strong></p>
+                        <p class="wiki-text"><strong>He taps into the Matrix of Infinity when he uses the "Matrix of Infinity" form.</strong></p>
+                        <p class="wiki-text"><strong>In "E.V.O.L.U.T.I.O.N", he defies logic as we know it, becoming a completely unlogical being and even transcendant until a certain level.</strong></p>
+                        <p class="wiki-text"><strong>He also has a form called "A.S.C.E.N.S.I.O.N", in which will be presented at some point.</strong></p>
+					</article>
+				</section>
+			</div>
+		</section>
+	</main>
+
+	<script src="../JS/wiki.js" defer></script>
+	<script src="../JS/omega.js" defer></script>
+
+	    <audio autoplay loop>
+  <source src="../Músicas/Undertale OST - 089 SAVE the World.mp3" type="audio/mpeg">
+  Seu navegador nÃ£o suporta Ã¡udio HTML5.
+</audio>
+
+        <!-- Path fixing script for GitHub Pages image/audio loading -->
+    <script>
+    (function(){
+        function normalizeKey(p){
+            p = p.replace(/^https?:\/\/.+?\//,'');
+            p = p.replace(/^\.\/?/,'');
+            p = p.normalize('NFD').replace(/\p{Diacritic}/gu,'').toLowerCase();
+            p = p.replace(/\\/g,'/');
+            p = p.replace(/[^a-z0-9.\/_-]+/g,'-');
+            p = p.replace(/-+/g,'-');
+            p = p.replace(/^[-]+|[-]+$/g,'');
+            return p;
+        }
+        async function fixPaths(){
+            let resp;
+            try{ 
+                const manifestPath = new URL('../assets-manifest.json', document.currentScript?.src || window.location.href).href;
+                resp = await fetch(manifestPath); 
+            }catch(e){ 
+                return; 
+            }
+            if(!resp.ok) return;
+            const manifest = await resp.json();
+            const attrs = [{sel:'img',attr:'src'},{sel:'audio',attr:'src'},{sel:'source',attr:'src'},{sel:'a',attr:'href'}];
+            for(const {sel,attr} of attrs){
+                document.querySelectorAll(sel).forEach(async el => {
+                    const val = el.getAttribute(attr);
+                    if(!val) return;
+                    if(/^https?:|^data:/.test(val)) return;
+                    try{
+                        const r = await fetch(val, {method:'HEAD'});
+                        if(r.ok) return;
+                    }catch(e){/*ignore*/}
+                    const key = normalizeKey(val);
+                    if(manifest[key]){
+                        el.setAttribute(attr, manifest[key]);
+                    } else {
+                        const key2 = normalizeKey('png/'+val.split('/').pop());
+                        const key3 = normalizeKey('musicas/'+val.split('/').pop());
+                        if(manifest[key2]) el.setAttribute(attr, manifest[key2]);
+                        else if(manifest[key3]) el.setAttribute(attr, manifest[key3]);
+                    }
+                });
+            }
+        }
+        if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', fixPaths);
+        else fixPaths();
+    })();
+    </script>
+
+</body>
+</html>
+
+
+
+
+

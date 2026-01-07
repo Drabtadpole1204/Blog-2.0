@@ -61,7 +61,42 @@ const dados = [
         imagem: "PNG/Dusttale_Hyperdeath Asriel.png",
         botao: "./Html/DusttaleHyperdeath.html"
     },
-
+    {
+        title: "Freddy 64 (Freddy and Friends)",
+        content: "A '64-style Freddy, he has all the Freddys as his brothers, and he has his own gang. He also has a twin brother just like him, named Alfred.",
+        imagem: "PNG/64.png",
+        botao: "./Html/FreddyAndFriends.html"
+    },
+    {
+        title: "Builder64",
+        content: "Builder64, a unique character.",
+        imagem: "PNG/Builder64.png",
+        botao: "./Html/Builder64.html"
+    },
+    {
+        title: "Daniel (Piggy Distortion)",
+        content: "A half-brown, half-golden dog with powers.",
+        imagem: "PNG/Daniel.PNG",
+        botao: "./Html/PiggyDistortionDaniel.html"
+    },
+    {
+        title: "Brandon (Piggy Distortion)",
+        content: "Brandon, the strongest infected.",
+        imagem: "PNG/Brandon.png",
+        botao: "./Html/PiggyDistortionBrandon.html"
+    },
+    {
+        title: "Why",
+        content: "The First, before any concept of Sonic, the Hedgehog.",
+        imagem: "PNG/Why.png",
+        botao: "./Html/Why.html"
+    },
+    {
+        title: "SMX",
+        content: "Made in Memory/Tribute of SMG4.Thank you for everything.",
+        imagem: "PNG/SMX.png",
+        botao: "./Html/SMX.html"
+    },
     {
         title: "Sans (Undertale:Breaking Point)",
         content: "Pacience has a limit...",
@@ -69,10 +104,34 @@ const dados = [
         botao: "./Html/UndertaleBreakingPoint.html"
     },
     {
+        title: "Leviathan (Ordem Paranormal)",
+        content: "A Custom Beast made by me and a friend for the game called Ordem Paranormal, translated to Paranormal Order.",
+        imagem: "PNG/Leviathan.png",
+        botao: "./Html/OrdemParanormal.html"
+    },
+    {
+        title: "Ctulhu (Ordem Paranormal)",
+        content: "A Custom Beast made by me and a friend for the game called Ordem Paranormal, translated to Paranormal Order.",
+        imagem: "PNG/Ctulhu.png",
+        botao: "./Html/Ctulhu.html"
+    },
+    {
+        title: "Potionhead",
+        content: "The one who will do everything to stop you.",
+        imagem: "PNG/Potionhead.png",
+        botao: "./Html/MinecraftCyber.html"
+    },
+    {
         title: "Bacon & Sammy",
         content: "Two Friends Who Have Found Inner Peace.",
         imagem: "PNG/Capturas.png",
         botao: "./Html/InnerPeace.html"
+    },
+    {
+        title: "Dr.Fade (Anomaly & Phobia Facility)",
+        content: "The One Who Always Has a Contengency Plan.",
+        imagem: "PNG/Captura 2.png",
+        botao: "./Html/A&PF.html"
     },
     {
         title: "∞/0",
@@ -98,7 +157,36 @@ const dados = [
         imagem: "./PNG/Captura 6.png",
         botao: "./Html/Lextale.html"
     },
-
+    {
+        title: "Ralph (Redcliff)",
+        content: "Redcliff General.",
+        imagem: "PNG/Ralph.png",
+        botao: "./Html/Redcliff.html"
+    },
+    {
+        title: "The Strongest Egg",
+        content: "The Strongest Egg.",
+        imagem: "PNG/The Strongest Egg.png",
+        botao: "./Html/TSE.html"
+    },
+    {
+        title: "Scott (Piggy: Distortion)",
+        content: "One Of The Detectives In L.P.D. and Bryan's Twin Brother.",
+        imagem: "PNG/Scott.png",
+        botao: "./Html/Skele.html"
+    },
+    {
+        title: "Bryan (Piggy: Distortion)",
+        content: "A Multi-Trillionaire Skeleton and Scott's Twin Brother.",
+        imagem: "PNG/Bryan.png",
+        botao: "./Html/Skele2.html"
+    },
+    {
+        title: "Doctor  Billy (Piggy: Distortion)",
+        content: "A Scientist Who Worked With Mr.P and Badgy. Now Stuck In This Mess.",
+        imagem: "PNG/Doctor Billy.png",
+        botao: "./Html/Doc.html"
+    },
     {
         title: "Monkey (Creatorverse)",
         content: "Because Why Not?.",
@@ -111,19 +199,6 @@ const dados = [
         imagem: "PNG/Captura 7.png",
         botao: "./Html/BloodBlox.html"
     },
-        {
-        title: "Omega Matrix!Sans",
-        content: "The Chosen One.",
-        imagem: "PNG/Omega Matrix V2.png",
-        botao: "./Html/Omega.html"
-    },
-    {
-        title: "Paradigm (Professional!Tale)",
-        content: "One of Voidheim's greatest creations.",
-        imagem: "PNG/Paradigm.png",
-        botao: "./Html/Professional!Tale.html"
-    },
-
 
 ];
 

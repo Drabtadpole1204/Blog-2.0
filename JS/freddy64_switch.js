@@ -1,5 +1,5 @@
 // freddy64_switch.js
-// Cycle through multiple frames listed in data-frames on #ff-portrait every 10 seconds with fade
+// Cycle through multiple frames listed in data-frames on #ff-portrait every 9 seconds with fade
 (function(){
     document.addEventListener('DOMContentLoaded', function(){
         const img = document.getElementById('ff-portrait');
@@ -8,7 +8,7 @@
         const framesData = img.dataset.frames;
         if (!framesData) return;
         let frames = framesData.split('|').map(s => s.trim()).filter(Boolean);
-        if (frames.length === 0) return;
+        if (frames.length < 2) return; 
 
         // If a requested frame filename is missing on disk, it will simply fail to preload.
         // You can replace missing names by editing the data-frames attribute in the HTML.
@@ -41,10 +41,7 @@
                         img.classList.remove('fade-out');
                     }
                 }, 900);
-            };
-            pre.onerror = function(){
-                console.warn('Failed to preload frame:', nextSrc);
-            };
+            }; 
         }
 
         function advance(){
@@ -52,7 +49,7 @@
             swapTo(index);
         }
 
-        // Start after 10s, then every 10s
-        setTimeout(function(){ advance(); setInterval(advance, 10000); }, 10000);
+        // Start after 9s, then every 9s
+        setTimeout(function(){ advance(); setInterval(advance, 9000); }, 9000);
     });
 })();
