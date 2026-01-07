@@ -102,30 +102,65 @@
             const btn = document.getElementById('bg-audio-toggle');
             if(!audio || !btn) return;
 
-            // Attempt to play muted (allowed by browsers)
-            audio.play().catch(()=>{});
+            const STORAGE_KEY = 'bg-music-enabled';
 
+            // helper
             function updateButton(){
-                btn.textContent = audio.paused ? 'Play music' : (audio.muted ? 'Unmute music' : 'Pause music');
+                if(audio.paused) btn.textContent = 'Play music';
+                else if(audio.muted) btn.textContent = 'Unmute music';
+                else btn.textContent = 'Pause music';
                 btn.setAttribute('aria-pressed', String(!audio.paused && !audio.muted));
             }
 
+            // try to play muted (allowed by browsers)
+            audio.play().catch(()=>{});
+
+            // If user previously enabled music, try restore setting (will only succeed if browser allows)
+            const wasEnabled = localStorage.getItem(STORAGE_KEY) === '1';
+            if(wasEnabled){
+                audio.muted = false;
+                audio.play().then(()=>{ updateButton(); }).catch(()=>{ audio.muted = true; updateButton(); });
+            }
+
+            // If navigated here from another page on the same site, browsers often treat that as a user gesture
+            try{
+                if(document.referrer){
+                    const ref = new URL(document.referrer);
+                    if(ref.origin === location.origin){
+                        // attempt to unmute and play
+                        audio.muted = false;
+                        audio.play().then(()=>{ localStorage.setItem(STORAGE_KEY,'1'); updateButton(); }).catch(()=>{ audio.muted = true; updateButton(); });
+                    }
+                }
+            }catch(e){/*ignore*/}
+
+            // Unlock audio on common user gestures
+            function unlock(){
+                audio.play().then(()=>{ audio.muted = false; localStorage.setItem(STORAGE_KEY,'1'); updateButton(); }).catch(()=>{ /* still blocked */ updateButton(); });
+                removeListeners();
+            }
+
+            function removeListeners(){
+                document.removeEventListener('pointerdown', unlock);
+                document.removeEventListener('keydown', unlock);
+                document.removeEventListener('touchstart', unlock);
+                document.removeEventListener('click', unlock);
+            }
+
+            document.addEventListener('pointerdown', unlock, {once:true});
+            document.addEventListener('keydown', unlock, {once:true});
+            document.addEventListener('touchstart', unlock, {once:true});
+            // keep legacy click as well
+            document.addEventListener('click', unlock, {once:true});
+
             btn.addEventListener('click', function(){
                 if(audio.paused){
-                    audio.play().then(()=>{ audio.muted = false; updateButton(); }).catch(()=>{ updateButton(); });
+                    audio.play().then(()=>{ audio.muted = false; localStorage.setItem(STORAGE_KEY,'1'); updateButton(); }).catch(()=>{ updateButton(); });
                 } else {
-                    audio.pause(); updateButton();
+                    audio.pause(); localStorage.removeItem(STORAGE_KEY); updateButton();
                 }
             });
 
-            // On first user gesture anywhere, unmute and play
-            function unlock(){
-                if(audio.paused) audio.play().catch(()=>{});
-                audio.muted = false;
-                updateButton();
-                document.removeEventListener('click', unlock);
-            }
-            document.addEventListener('click', unlock, {once:true});
             updateButton();
         }
         if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', setupAudio);
