@@ -11,10 +11,13 @@
         <h1>My Blog - Undertale Aus/Projects/Creatorverse</h1>
         <nav id="main-nav"></nav>
         <button class="menu-toggle">Did it take long? Yes, but it was worth it. Rights of the songs used goes to their respective owners.</button>
-        <!--Audio-->
-        <audio autoplay loop>
-            <source src="./Músicas/Undertale OST - 093 Menu (Full).mp3" type="audio/mpeg">
+        <!--Audio (muted autoplay to satisfy browser policies) -->
+        <audio id="bg-audio" autoplay loop muted>
+            <source src="./Músicas/Undertale OST - 002 Start Menu.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
         </audio>
+        <!-- Play/pause toggle (click anywhere to enable sound) -->
+        <button id="bg-audio-toggle" aria-pressed="false" style="position:fixed;right:16px;bottom:16px;z-index:9999;background:#000;color:#fff;border-radius:8px;padding:8px 10px;border:none;cursor:pointer;">Play music</button>
         <!-- Pagination -->
         <nav class="pagination" aria-label="Pagination">
             <a href="./index.html" aria-current="page" style="display:inline-block; border-bottom:3px solid #000; padding-bottom:4px; margin-right:8px;">1</a>
@@ -90,6 +93,43 @@
         }
         if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', fixPaths);
         else fixPaths();
+    })();
+
+    // Audio control: unmute on user interaction and provide a visible toggle
+    (function(){
+        function setupAudio(){
+            const audio = document.getElementById('bg-audio');
+            const btn = document.getElementById('bg-audio-toggle');
+            if(!audio || !btn) return;
+
+            // Attempt to play muted (allowed by browsers)
+            audio.play().catch(()=>{});
+
+            function updateButton(){
+                btn.textContent = audio.paused ? 'Play music' : (audio.muted ? 'Unmute music' : 'Pause music');
+                btn.setAttribute('aria-pressed', String(!audio.paused && !audio.muted));
+            }
+
+            btn.addEventListener('click', function(){
+                if(audio.paused){
+                    audio.play().then(()=>{ audio.muted = false; updateButton(); }).catch(()=>{ updateButton(); });
+                } else {
+                    audio.pause(); updateButton();
+                }
+            });
+
+            // On first user gesture anywhere, unmute and play
+            function unlock(){
+                if(audio.paused) audio.play().catch(()=>{});
+                audio.muted = false;
+                updateButton();
+                document.removeEventListener('click', unlock);
+            }
+            document.addEventListener('click', unlock, {once:true});
+            updateButton();
+        }
+        if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', setupAudio);
+        else setupAudio();
     })();
     </script>
 
