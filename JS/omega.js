@@ -2,6 +2,7 @@
 // switches between two images every 10s with a fade
 (function(){
     const imgs = [
+        "../PNG/Omega Matrix! Sans.png",
         "../PNG/Omega Matrix V2.png",
         "../PNG/Omega Matrix!Sans T.E.X.T.U.R.E.png",
         "../PNG/Matrix of Infinity.png",
