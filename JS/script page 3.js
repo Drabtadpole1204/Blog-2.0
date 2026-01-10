@@ -109,3 +109,55 @@ document.addEventListener('DOMContentLoaded', () => {
     if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', fixPaths);
     else fixPaths();
 })();
+
+// --- autoplay helper: try to start audio, show fallback button if browser blocks autoplay ---
+(function(){
+    function playAll(){
+        const audios = Array.from(document.querySelectorAll('audio'));
+        if(!audios.length) return Promise.resolve();
+        return Promise.all(audios.map(a => {
+            try{ a.load(); } catch(e){}
+            return a.play();
+        }));
+    }
+
+    function showPlayButton(){
+        if(document.getElementById('play-music-fallback')) return;
+        const btn = document.createElement('button');
+        btn.id = 'play-music-fallback';
+        btn.textContent = '▶ Play music';
+        Object.assign(btn.style,{
+            position:'fixed',
+            right:'12px',
+            bottom:'12px',
+            zIndex:9999,
+            padding:'8px 12px',
+            background:'#222',
+            color:'#fff',
+            border:'none',
+            borderRadius:'6px',
+            cursor:'pointer',
+            fontSize:'14px',
+            opacity:'0.95'
+        });
+        btn.addEventListener('click', ()=>{
+            playAll().then(()=>{ btn.remove(); localStorage.setItem('musicEnabled','1'); })
+                     .catch(()=>{ /* still blocked */ });
+        });
+        document.body.appendChild(btn);
+    }
+
+    document.addEventListener('DOMContentLoaded', ()=>{
+        const audios = document.querySelectorAll('audio');
+        if(!audios.length) return;
+        if(localStorage.getItem('musicEnabled')){
+            playAll().catch(()=> showPlayButton());
+            return;
+        }
+        playAll().catch(()=> showPlayButton());
+        const onFirstGesture = ()=>{
+            playAll().then(()=>{ document.removeEventListener('click', onFirstGesture); const btn=document.getElementById('play-music-fallback'); if(btn) btn.remove(); localStorage.setItem('musicEnabled','1'); }).catch(()=>{});
+        };
+        document.addEventListener('click', onFirstGesture, {once:true});
+    });
+})();
