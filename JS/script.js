@@ -151,7 +151,7 @@ const dados = [
         title: "DT Papyrus (Test Ops/DT!Belief)",
         content: "A character from Test Ops and DT!Belief.",
         imagem: "PNG/DT Belief Paps.PNG",
-        botao: "./Html/DT.html"
+        botao: "./Html/DT.Html"
     },
 
 
