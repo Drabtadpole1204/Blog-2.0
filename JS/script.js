@@ -58,7 +58,7 @@ const dados = [
     {
         title: "Asriel Dreemurr (Dusttale: Hyperdeath)",
         content: "Dusttale....what if....?",
-        imagem: "PNG/Dusttale_Hyperdeath Asriel.png",
+        imagem: "PNG/DTH Asriel.png",
         botao: "./Html/DusttaleHyperdeath.html"
     },
 
@@ -122,6 +122,36 @@ const dados = [
         content: "One of Voidheim's greatest creations.",
         imagem: "PNG/Paradigm.png",
         botao: "./Html/Professional!Tale.html"
+    },
+    {   
+        title: "Ungodly Dust Sans (Test Ops/Creatorverse)",
+        content: "A character from Test Ops and Creatorverse.",
+        imagem: "PNG/Ungodly Dust Sans.PNG",
+        botao: "./Html/Ungodly.html"
+    },
+    {   
+        title: "Ultra Killer Sans (Test Ops/Creatorverse)",
+        content: "A character from Test Ops and Creatorverse.",
+        imagem: "PNG/Ultra Killer Sans.PNG",
+        botao: "./Html/Ultra.html"
+    } ,   
+    {   
+        title: "Final DT Sans (Test Ops)",
+        content: "A character from Test Ops.",
+        imagem: "PNG/Final DT Sans.PNG",
+        botao: "./Html/FinalDT.html"
+    },
+    {   
+        title: "Outer Limbo Sans (Test Ops/Creatorverse)",
+        content: "A character from Test Ops and Creatorverse.",
+        imagem: "PNG/Outerlimbo Sans.PNG",
+        botao: "./Html/OuterLimbo.html"
+    },
+    {   
+        title: "DT Papyrus (Test Ops/DT!Belief)",
+        content: "A character from Test Ops and DT!Belief.",
+        imagem: "PNG/DT Belief Paps.PNG",
+        botao: "./Html/DT.html"
     },
 
 

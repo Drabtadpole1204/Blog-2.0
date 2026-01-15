@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Test Ops/DT!Belief - Wiki</title>
+	<link rel="stylesheet" href="../CSS/wiki.css">
+</head>
+<body>
+	<main class="page-content">
+		<h1>DT!Belief Papyrus - Wiki</h1>
+
+		<section class="wiki-card" aria-labelledby="cvdream-title">
+			<aside class="wiki-side wiki-image">
+				<div class="image-wrap">
+					<img src="../PNG/DT Belief Paps.PNG" alt="Character image">
+				</div>
+				<h2 id="cvdream-title">DT!Belief Papyrus</h2>
+				<p class="wiki-role">Character</p>
+			</aside>
+
+			<div class="wiki-main">
+				<nav class="wiki-tabs" role="tablist" aria-label="CV!Dream sections">
+					<button role="tab" aria-selected="true" aria-controls="tab-story" id="tab-btn-story" class="active">Story</button>
+					<button role="tab" aria-selected="false" aria-controls="tab-abilities" id="tab-btn-abilities">Abilities</button>
+					<button role="tab" aria-selected="false" aria-controls="tab-au" id="tab-btn-au">AU</button>
+				</nav>
+
+				<section class="wiki-content">
+					<article id="tab-story" role="tabpanel" aria-labelledby="tab-btn-story">
+						<h3>Story</h3>
+						<p class="wiki-text">DT Belief Papyrus is from both Test Ops and DT!Belief, he uses determination to get stronger, and to make his swords in which he uses to fight the Human, this is like Disbelief, but stopping and capturing the human fills Papyrus with DETERMINATION, thats why the name DT!Belief, by the way, the AU takes place in a Geno run.</p>
+					</article>
+
+					<article id="tab-abilities" role="tabpanel" aria-labelledby="tab-btn-abilities" hidden>
+						<h3>Abilities</h3>
+						<ul class="ability-list">
+							<li><strong>Bones:</strong> Bones.</li>
+							<li><strong>DT Bones:</strong> Bones made out of Determination.</li>
+                            <li><strong>Blue Soul:</strong> Telekinesis.</li>
+                            <li><strong>Blue Bones:</strong> Blue bones, which force you to stay still so you don't get hurt when they pass by you.</li>
+                            <li><strong>Orange Bones:</strong> Orange bones, in which you are forced to move so you don't get hurt when they pass by you.</li>
+                            <li><strong>Equipment:</strong></li>
+							<li><strong>DT Blades:</strong> Bone Blades made out of Determination</li>
+                            <li><strong>He uses Sans' jacket, in this AU, his jacket is black.</strong> </li>
+						</ul>
+					</article>
+
+					<article id="tab-au" role="tabpanel" aria-labelledby="tab-btn-au" hidden>
+						<h3>AU</h3>
+						<p class="wiki-text">There is not much left to say, but here is a fun fact, DT!Belief Papyrus' left eye is red due to determination.
+                        </p>
+					</article>
+				</section>
+			</div>
+		</section>
+	</main>
+
+	<script src="../JS/wiki.js" defer></script>
+	<audio autoplay loop>
+  <source src="../Músicas/toby fox - UNDERTALE Soundtrack - 97 But the Earth Refused to Die.mp3" type="audio/mpeg">
+  Seu navegador nÃ£o suporta Ã¡udio HTML5.
+</audio>
+
+        <!-- Path fixing script for GitHub Pages image/audio loading -->
+    <script>
+    (function(){
+        function normalizeKey(p){
+            p = p.replace(/^https?:\/\/.+?\//,'');
+            p = p.replace(/^\.\/?/,'');
+            p = p.normalize('NFD').replace(/\p{Diacritic}/gu,'').toLowerCase();
+            p = p.replace(/\\/g,'/');
+            p = p.replace(/[^a-z0-9.\/_-]+/g,'-');
+            p = p.replace(/-+/g,'-');
+            p = p.replace(/^[-]+|[-]+$/g,'');
+            return p;
+        }
+        async function fixPaths(){
+            let resp;
+            try{ 
+                const manifestPath = new URL('../assets-manifest.json', document.currentScript?.src || window.location.href).href;
+                resp = await fetch(manifestPath); 
+            }catch(e){ 
+                return; 
+            }
+            if(!resp.ok) return;
+            const manifest = await resp.json();
+            const attrs = [{sel:'img',attr:'src'},{sel:'audio',attr:'src'},{sel:'source',attr:'src'},{sel:'a',attr:'href'}];
+            for(const {sel,attr} of attrs){
+                document.querySelectorAll(sel).forEach(async el => {
+                    const val = el.getAttribute(attr);
+                    if(!val) return;
+                    if(/^https?:|^data:/.test(val)) return;
+                    try{
+                        const r = await fetch(val, {method:'HEAD'});
+                        if(r.ok) return;
+                    }catch(e){/*ignore*/}
+                    const key = normalizeKey(val);
+                    if(manifest[key]){
+                        el.setAttribute(attr, manifest[key]);
+                    } else {
+                        const key2 = normalizeKey('png/'+val.split('/').pop());
+                        const key3 = normalizeKey('musicas/'+val.split('/').pop());
+                        if(manifest[key2]) el.setAttribute(attr, manifest[key2]);
+                        else if(manifest[key3]) el.setAttribute(attr, manifest[key3]);
+                    }
+                });
+            }
+        }
+        if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', fixPaths);
+        else fixPaths();
+    })();
+    </script>
+
+</body>
+</html>
+
+
+
+

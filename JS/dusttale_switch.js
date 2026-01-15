@@ -8,10 +8,18 @@
         const framesData = img.dataset.frames;
         if (!framesData) return;
         const frames = framesData.split('|').map(s => s.trim()).filter(Boolean);
+
+        // ensure the current src is included in the frames so custom images are preserved
+        const curSrc = img.getAttribute('src');
+        const normalizedCur = curSrc.replace(/\\/g,'/');
+        if (!frames.some(f => f.replace(/\\/g,'/') === normalizedCur)) {
+            frames.unshift(curSrc);
+        }
+
         if (frames.length < 2) return;
 
         // determine starting index based on current src
-        let index = frames.findIndex(f => f.replace(/\\/g,'/') === img.getAttribute('src').replace(/\\/g,'/'));
+        let index = frames.findIndex(f => f.replace(/\\/g,'/') === normalizedCur);
         if (index === -1) index = 0;
 
         // preload images
