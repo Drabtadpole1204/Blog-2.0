@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Test Ops - Wiki</title>
+	<link rel="stylesheet" href="../CSS/wiki.css">
+</head>
+<body>
+	<main class="page-content">
+		<h1>Test Ops Bosses - Wiki</h1>
+
+		<section class="wiki-card" aria-labelledby="cvdream-title">
+			<aside class="wiki-side wiki-image">
+				<div class="image-wrap">
+					<img src="../PNG/Omniversal Boss.PNG" alt="Character image">
+				</div>
+				<h2 id="cvdream-title">Omniversal Boss</h2>
+				<p class="wiki-role">Villain</p>
+			</aside>
+
+			<div class="wiki-main">
+				<nav class="wiki-tabs" role="tablist" aria-label="CV!Dream sections">
+					<button role="tab" aria-selected="true" aria-controls="tab-story" id="tab-btn-story" class="active">Story</button>
+					<button role="tab" aria-selected="false" aria-controls="tab-abilities" id="tab-btn-abilities">Abilities</button>
+					<button role="tab" aria-selected="false" aria-controls="tab-au" id="tab-btn-au">AU</button>
+				</nav>
+
+				<section class="wiki-content">
+					<article id="tab-story" role="tabpanel" aria-labelledby="tab-btn-story">
+						<h3>Story</h3>
+						<p class="wiki-text">Omniversal Boss is the first boss who will try to stop the player from progressing in Test Ops, and try to undo the Omniversal Black Hole the player creates in the game.</p>
+					</article>
+
+					<article id="tab-abilities" role="tabpanel" aria-labelledby="tab-btn-abilities" hidden>
+						<h3>Abilities</h3>
+						<ul class="ability-list">
+                            <li><strong>Super-Endurance:</strong> Self-explanatory</li>
+                            <li><strong>Super-Speed:</strong> Self-exaplanatory</li>
+                            <li><strong>Super-Strength:</strong> Self-explanatory</li>
+							<li><strong>Void:</strong> Creates a void that damages players that touuch it.</li>
+                            <li><strong>Sword Barrage:</strong> Creates a barrage of Omniverse Enchanted Swords.</li>
+                            <li><strong>Eye of the Omniverse:</strong> Summons a lot of eyes that can see shoot very big and powerful beams.</li>
+							
+						</ul>
+					</article>
+
+					<article id="tab-au" role="tabpanel" aria-labelledby="tab-btn-au" hidden>
+						<h3>AU</h3>
+						<p class="wiki-text">Omniversal Boss appears in Test Ops as the first boss, he is very powerful and can take on multiple players at once. His name is Omniversal Boss because he is one of the bosses/leaders of the Omniverse. Although he is not the weakest among them, he is still very powerful and a force to be reckoned with.
+                        </p>
+					</article>
+				</section>
+			</div>
+		</section>
+	</main>
+
+	<script src="../JS/wiki.js" defer></script>
+	<audio autoplay loop>
+  <source src="../Músicas/16. Glory.mp3" type="audio/mpeg">
+  Seu navegador nÃ£o suporta Ã¡udio HTML5.
+</audio>
+
+        <!-- Path fixing script for GitHub Pages image/audio loading -->
+    <script>
+    (function(){
+        function normalizeKey(p){
+            p = p.replace(/^https?:\/\/.+?\//,'');
+            p = p.replace(/^\.\/?/,'');
+            p = p.normalize('NFD').replace(/\p{Diacritic}/gu,'').toLowerCase();
+            p = p.replace(/\\/g,'/');
+            p = p.replace(/[^a-z0-9.\/_-]+/g,'-');
+            p = p.replace(/-+/g,'-');
+            p = p.replace(/^[-]+|[-]+$/g,'');
+            return p;
+        }
+        async function fixPaths(){
+            let resp;
+            try{ 
+                const manifestPath = new URL('../assets-manifest.json', document.currentScript?.src || window.location.href).href;
+                resp = await fetch(manifestPath); 
+            }catch(e){ 
+                return; 
+            }
+            if(!resp.ok) return;
+            const manifest = await resp.json();
+            const attrs = [{sel:'img',attr:'src'},{sel:'audio',attr:'src'},{sel:'source',attr:'src'},{sel:'a',attr:'href'}];
+            for(const {sel,attr} of attrs){
+                document.querySelectorAll(sel).forEach(async el => {
+                    const val = el.getAttribute(attr);
+                    if(!val) return;
+                    if(/^https?:|^data:/.test(val)) return;
+                    try{
+                        const r = await fetch(val, {method:'HEAD'});
+                        if(r.ok) return;
+                    }catch(e){/*ignore*/}
+                    const key = normalizeKey(val);
+                    if(manifest[key]){
+                        el.setAttribute(attr, manifest[key]);
+                    } else {
+                        const key2 = normalizeKey('png/'+val.split('/').pop());
+                        const key3 = normalizeKey('musicas/'+val.split('/').pop());
+                        if(manifest[key2]) el.setAttribute(attr, manifest[key2]);
+                        else if(manifest[key3]) el.setAttribute(attr, manifest[key3]);
+                    }
+                });
+            }
+        }
+        if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', fixPaths);
+        else fixPaths();
+    })();
+    </script>
+
+</body>
+</html>

@@ -153,6 +153,18 @@ const dados = [
         imagem: "PNG/DT Belief Paps.PNG",
         botao: "./Html/DT.Html"
     },
+    {   
+        title: "END 404 (Test Ops/Creatorverse)",
+        content: "END404END404END404END404END404END404",
+        imagem: "PNG/END 404 IMG.PNG",
+        botao: "./Html/END.html"
+    },
+    {   
+        title: "Omniversal Boss (Test Ops)",
+        content: "One of the Omniverse's leaders/bosses.",
+        imagem: "PNG/Omniversal Boss.PNG",
+        botao: "./Html/Boss.html"
+    },
 
 
 ];
