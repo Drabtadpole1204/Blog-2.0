@@ -1,16 +1,34 @@
 //dados de exemplo para Page 3
 const dados = [
+                      {
+        title: "Niles The Bathog",
+        content: "An hybrid between a Bat and a Hedgehog.",
+        imagem: "PNG/Niles.PNG",
+        botao: "./Html/Niles.html"
+    },
+                      {
+        title: "Alpha",
+        content: "Embodiement of the Beginning, the Past, the Alpha.",
+        imagem: "PNG/Alpha.PNG",
+        botao: "./Html/Alpha.html"
+    },
+                  {
+        title: "Beta",
+        content: "Embodiement of the Middle, the Current, the Present, the Beta.",
+        imagem: "PNG/Beta.PNG",
+        botao: "./Html/Beta.html"
+    },
+                  {
+        title: "Omega",
+        content: "Embodiement of the End, the Future, the Omega.",
+        imagem: "PNG/Omega.PNG",
+        botao: "./Html/OM.html"
+    },
     {
         title: "Why",
         content: "Why was the first concept of Sonic the Hedgehog... (short intro)",
         imagem: "PNG/Why.png",
         botao: "./Html/Why.html"
-    },
-    {
-        title: "Rachet T.Deer",
-        content: "Eggman's forgotten Deer Robot.",
-        imagem: "PNG/Rachet.PNG",
-        botao: "./Html/Rachet.html"
     },
     {
         title: "Hamlet T.Knight",
@@ -24,11 +42,65 @@ const dados = [
         imagem: "PNG/Hank.PNG",
         botao: "./Html/Hank.html"
     },
-        {
+    {
         title: "Tony",
         content: "A Liquid Life Form.",
         imagem: "PNG/Tony.PNG",
         botao: "./Html/Tony.html"
+    },
+    {
+        title: "Alex The Deer",
+        content: "A Deer who aims to be a Sannin when he grows up.",
+        imagem: "PNG/Alex T.Deer.PNG",
+        botao: "./Html/Alex.html"
+    },
+    {
+        title: "Rachet T.Deer",
+        content: "Eggman's forgotten Deer Robot.",
+        imagem: "PNG/Rachet.PNG",
+        botao: "./Html/Rachet.html"
+    },
+    {
+        title: "Rachet 2.0",
+        content: "Rachet after being upgraded by Tails.",
+        imagem: "PNG/Rachet 2.0.PNG",
+        botao: "./Html/Rachet 2.0.html"
+    },
+                  {
+        title: "Rachet EX",
+        content: "Rachet's version of NEO Metal Sonic.",
+        imagem: "PNG/Rachet EX.PNG",
+        botao: "./Html/Rachet EX.html"
+    },
+                  {
+        title: "Rachet NEO",
+        content: "Rachet's version of Metal Overlord.",
+        imagem: "PNG/Rachet NEO.PNG",
+        botao: "./Html/Rachet NEO.html"
+    },
+                  {
+        title: "Roy",
+        content: "A child Demi-god.",
+        imagem: "PNG/Roy.PNG",
+        botao: "./Html/Roy.html"
+    },
+                  {
+        title: "Rocket",
+        content: "An hybrid.",
+        imagem: "PNG/Rocket T. Chark.PNG",
+        botao: "./Html/Rocket.html"
+    },
+                      {
+        title: "Raku",
+        content: "A person who is like a Knight, but in the modern days.",
+        imagem: "PNG/Raku The Knight.PNG",
+        botao: "./Html/Raku.html"
+    },
+                      {
+        title: "B.U.T.T.E.R.F.L.Y.",
+        content: "The Ultimate Robot.",
+        imagem: "PNG/B.U.T.T.E.R.F.L.Y.PNG",
+        botao: "./Html/BUTTERFLY.html"
     },
 ];
 
