@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Piggy: Corrupted Timelines</title>
+    <link rel="stylesheet" href="../CSS/mv-wiki.css">
+</head>
+<body>
+    <main class="page-content">
+        <h1>Piggy: Corrupted Timelines</h1>
+
+        <section id="mv-wiki" class="wiki-card" aria-labelledby="mv-title">
+            <aside class="wiki-side wiki-image">
+                <div class="image-wrap">
+                    <!-- Add your Murderverse character image to PNG/mv-character.png or change the src -->
+                    <img src="../PNG/Fusion.png" alt="Character image" id="mv-portrait">
+                </div>
+                <h2 id="mv-title">The Family</h2>
+                <p class="wiki-role">Antagonist</p>
+            </aside>
+
+            <div class="wiki-main">
+                <nav class="wiki-tabs" role="tablist" aria-label="Murderverse sections">
+                    <button role="tab" aria-selected="true" aria-controls="mv-tab-story" id="mv-tab-btn-story" class="active">Story</button>
+                    <button role="tab" aria-selected="false" aria-controls="mv-tab-abilities" id="mv-tab-btn-abilities">Abilities</button>
+                    <button role="tab" aria-selected="false" aria-controls="mv-tab-au" id="mv-tab-btn-au">AU</button>
+                </nav>
+
+                <section class="wiki-content">
+                    <article id="mv-tab-story" role="tabpanel" aria-labelledby="mv-tab-btn-story">
+                        <h3>Story</h3>
+                        <p class="wiki-text">The Family is a fusion of members from the Piggy Family, those being, Piggy, Little Brother, Mother and Father.</p>
+                        <p class="wiki-text">Theme: "Unholy Fusion - The Corrupted Family" by me with the help of Suno AI.</p>
+
+                    </article>
+
+                    <article id="mv-tab-abilities" role="tabpanel" aria-labelledby="mv-tab-btn-abilities" hidden>
+                        <h3>Abilities</h3>
+                        <ul class="ability-list">
+                            <li><strong>Weapon:</strong> 4 Blades</li>
+                            <li><strong>Better vision:</strong> The Family has enhanced vision compared to other individuals due to having 4 eyes.</li>
+                            <li><strong>Super-Endurance:</strong> The Family has enhanced endurance compared to other individuals.</li>
+                            <li><strong>Not sure what else to add.</strong></li>
+                        </ul>
+                    </article>
+
+                    <article id="mv-tab-au" role="tabpanel" aria-labelledby="mv-tab-btn-au" hidden>
+                        <h3>AU (Alternate Universe)</h3>
+                        <p class="wiki-text">There is not much left to say, but Piggy: Corrupted Timelines can also be referred to as P:CT.</p>
+                    </article>
+                </section>
+            </div>
+        </section>
+    </main>
+
+    <script src="../JS/mv-wiki.js" defer></script>
+    <audio autoplay loop>
+  <source src="../Músicas/Unholy Fusion_ The Corrupted Family Theme (From Piggy_ Corrupted Timelines) (1).mp3" type="audio/mpeg">
+  Seu navegador nÃ£o suporta Ã¡udio HTML5.
+</audio>
+
+        <!-- Path fixing script for GitHub Pages image/audio loading -->
+    <script>
+    (function(){
+        function normalizeKey(p){
+            p = p.replace(/^https?:\/\/.+?\//,'');
+            p = p.replace(/^\.\/?/,'');
+            p = p.normalize('NFD').replace(/\p{Diacritic}/gu,'').toLowerCase();
+            p = p.replace(/\\/g,'/');
+            p = p.replace(/[^a-z0-9.\/_-]+/g,'-');
+            p = p.replace(/-+/g,'-');
+            p = p.replace(/^[-]+|[-]+$/g,'');
+            return p;
+        }
+        async function fixPaths(){
+            let resp;
+            try{ 
+                const manifestPath = new URL('../assets-manifest.json', document.currentScript?.src || window.location.href).href;
+                resp = await fetch(manifestPath); 
+            }catch(e){ 
+                return; 
+            }
+            if(!resp.ok) return;
+            const manifest = await resp.json();
+            const attrs = [{sel:'img',attr:'src'},{sel:'audio',attr:'src'},{sel:'source',attr:'src'},{sel:'a',attr:'href'}];
+            for(const {sel,attr} of attrs){
+                document.querySelectorAll(sel).forEach(async el => {
+                    const val = el.getAttribute(attr);
+                    if(!val) return;
+                    if(/^https?:|^data:/.test(val)) return;
+                    try{
+                        const r = await fetch(val, {method:'HEAD'});
+                        if(r.ok) return;
+                    }catch(e){/*ignore*/}
+                    const key = normalizeKey(val);
+                    if(manifest[key]){
+                        el.setAttribute(attr, manifest[key]);
+                    } else {
+                        const key2 = normalizeKey('png/'+val.split('/').pop());
+                        const key3 = normalizeKey('musicas/'+val.split('/').pop());
+                        if(manifest[key2]) el.setAttribute(attr, manifest[key2]);
+                        else if(manifest[key3]) el.setAttribute(attr, manifest[key3]);
+                    }
+                });
+            }
+        }
+        if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', fixPaths);
+        else fixPaths();
+    })();
+    </script>
+
+</body>
+</html>
+

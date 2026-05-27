@@ -2,35 +2,18 @@
 console.log('script-page-3.js loaded');
 const dados3 = [
     {
-        title: "The Family",
-        content: "From Piggy: Corrupted Timelines.",
-        imagem: "PNG/Fusion.png",
-        botao: "./Html/Family.html"
+        title: "Coming Soon...",
+        content: "Coming Soon.",
+        imagem: "PNG/Coming Soon.jpg",
+        botao: "index.html"
     },
         {
-        title: "Corrupted Pony",
-        content: "Pony from Piggy: Corrupted Timelines (Unfinished).",
-        imagem: "PNG/Pony (From Piggy_ Corrupted Timelines).png",
-        botao: "./Html/Pony2.html"
-    },
-    {
-        title: "Corrupted Teacher",
-        content: "Teacher from Piggy: Corrupted Timelines (Unfinished).",
-        imagem: "PNG/PCT Teacher.png",
-        botao: "./Html/Teacher2.html"
-    },
-    {
-        title: "Corrupted Zizzy",
-        content: "Zizzy from Piggy: Corrupted Timelines (Unfinished).",
-        imagem: "PNG/Zizzy (From Piggy_ Corrupted Timelines).png",
-        botao: "./Html/Zizzy2.html"
-    },
-    {
-        title: "Corrupted Zompiggy",
-        content: "Zompiggy from Piggy: Corrupted Timelines.",
-        imagem: "PNG/Zompiggy (Piggy_Corrupted Timelines).png",
-        botao: "./Html/Zompiggy2.html"
-    },
+        title: "Coming Soon...",
+        content: "Coming Soon.",
+        imagem: "PNG/Coming Soon.jpg",
+        botao: "index.html"
+    }
+
 ];
 
 function loadNews3() {
