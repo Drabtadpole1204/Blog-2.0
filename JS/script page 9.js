@@ -9,19 +9,19 @@ const dados3 = [
     },
         {
         title: "Corrupted Pony",
-        content: "Pony from Piggy: Corrupted Timelines (Unfinished).",
+        content: "Pony from Piggy: Corrupted Timelines.",
         imagem: "PNG/Pony (From Piggy_ Corrupted Timelines).png",
         botao: "./Html/Pony2.html"
     },
     {
         title: "Corrupted Teacher",
-        content: "Teacher from Piggy: Corrupted Timelines (Unfinished).",
+        content: "Teacher from Piggy: Corrupted Timelines.",
         imagem: "PNG/PCT Teacher.png",
         botao: "./Html/Teacher2.html"
     },
     {
         title: "Corrupted Zizzy",
-        content: "Zizzy from Piggy: Corrupted Timelines (Unfinished).",
+        content: "Zizzy from Piggy: Corrupted Timelines.",
         imagem: "PNG/Zizzy (From Piggy_ Corrupted Timelines).png",
         botao: "./Html/Zizzy2.html"
     },
